@@ -30,14 +30,8 @@
       --maxw: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -46,40 +40,18 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    h1,
-    h2,
-    h3,
-    h4 {
+    h1, h2, h3, h4 {
       font-family: 'Sora', sans-serif;
       margin: 0 0 .5em 0;
       line-height: 1.2;
       font-weight: 600;
     }
 
-    p {
-      margin: 0 0 1em 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    button {
-      font-family: inherit;
-      cursor: pointer;
-    }
+    p { margin: 0 0 1em 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
 
     .wrap {
       max-width: var(--maxw);
@@ -107,85 +79,38 @@
       transition: all .2s ease;
     }
 
-    .btn-primary {
-      background: var(--sage);
-      color: var(--white);
-    }
+    .btn-primary { background: var(--sage); color: var(--white); }
+    .btn-primary:hover { background: var(--sage-dark); }
+    .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255, 255, 255, .55); }
+    .btn-ghost:hover { background: rgba(255, 255, 255, .15); }
+    .btn-outline { background: transparent; color: var(--ink); border-color: var(--gray-300); }
+    .btn-outline:hover { border-color: var(--sage); color: var(--sage-dark); }
 
-    .btn-primary:hover {
-      background: var(--sage-dark);
-    }
+    .page { display: none; }
+    .page.active { display: block; }
+    section { padding: 88px 0; }
+    .section-head { max-width: 600px; margin-bottom: 48px; }
+    .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+    .tag-gray { background: var(--bg); }
 
-    .btn-ghost {
-      background: transparent;
-      color: var(--white);
-      border-color: rgba(255, 255, 255, .55);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, .15);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--gray-300);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--sage);
-      color: var(--sage-dark);
-    }
-
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    section {
-      padding: 88px 0;
-    }
-
-    .section-head {
-      max-width: 600px;
-      margin-bottom: 48px;
-    }
-
-    .section-head.center {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    .tag-gray {
-      background: var(--bg);
-    }
-
-    /* ===== HEADER — liquid glass, purple hue ===== */
+    /* ===== HEADER — original transparent-on-hero design ===== */
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      background: linear-gradient(120deg, rgba(124, 92, 184, .16), rgba(255, 255, 255, .30) 55%, rgba(124, 92, 184, .14));
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, .35);
-      box-shadow: 0 8px 32px rgba(84, 57, 126, .10), inset 0 1px 0 rgba(255, 255, 255, .5);
-      transition: background .35s ease, box-shadow .35s ease, padding .3s ease, backdrop-filter .35s ease;
-      padding: 20px 0;
+      background: transparent;
+      transition: background .35s ease, box-shadow .35s ease, padding .3s ease;
+      padding: 22px 0;
     }
 
     header.solid {
-      background: linear-gradient(120deg, rgba(124, 92, 184, .20), rgba(255, 255, 255, .62) 55%, rgba(124, 92, 184, .16));
-      backdrop-filter: blur(22px) saturate(200%);
-      -webkit-backdrop-filter: blur(22px) saturate(200%);
-      box-shadow: 0 8px 32px rgba(84, 57, 126, .14), inset 0 1px 0 rgba(255, 255, 255, .6);
-      padding: 13px 0;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 var(--gray-200);
+      padding: 14px 0;
     }
 
     .nav-row {
@@ -204,91 +129,76 @@
       font-size: 21px;
       flex: none;
       justify-self: start;
-      color: var(--ink);
     }
+    .logo img { height: 48px; width: auto; }
+    .logo-fallback { display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 44px; height: 44px; flex: none; }
 
-    .logo img {
-      height: 48px;
-      width: auto;
-    }
-
-    .logo-fallback {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      width: 44px;
-      height: 44px;
-      flex: none;
-    }
-
-    .logo,
-    .logo-fallback {
-      color: var(--ink);
-    }
+    header:not(.solid) .logo,
+    header:not(.solid) .logo-fallback { color: var(--white); }
+    header.solid .logo,
+    header.solid .logo-fallback { color: var(--ink); }
 
     nav.primary-nav {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 26px;
       justify-self: center;
       grid-column: 2;
-      border-radius: 999px;
-      padding: 6px;
-      background: rgba(255, 255, 255, .35);
-      border: 1px solid rgba(255, 255, 255, .5);
-      backdrop-filter: blur(6px);
     }
 
-    nav.primary-nav a {
-      font-size: 14.5px;
+    nav.primary-nav>a,
+    .nav-item>.nav-trigger {
+      font-size: 15px;
       font-weight: 500;
       position: relative;
-      padding: 9px 18px;
-      border-radius: 999px;
-      color: var(--gray-700);
+      padding: 4px 0;
+      color: inherit;
       white-space: nowrap;
-      transition: background .2s ease, color .2s ease;
-    }
-
-    nav.primary-nav a.active,
-    nav.primary-nav a:hover {
-      color: var(--sage-dark);
-      background: rgba(255, 255, 255, .75);
-    }
-
-    nav.primary-nav a.active::after {
-      content: none;
-    }
-
-    /* ===== NAV DROPDOWN (About Us) ===== */
-    .nav-item {
-      position: relative;
-    }
-
-    .nav-item>.nav-trigger {
       display: inline-flex;
       align-items: center;
       gap: 5px;
     }
 
-    .nav-caret {
-      display: inline-block;
-      transition: transform .25s ease;
-      flex: none;
+    header:not(.solid) nav.primary-nav>a,
+    header:not(.solid) .nav-item>.nav-trigger { color: rgba(255, 255, 255, .92); }
+    header.solid nav.primary-nav>a,
+    header.solid .nav-item>.nav-trigger { color: var(--gray-700); }
+
+    nav.primary-nav>a.active,
+    nav.primary-nav>a:hover,
+    .nav-item>.nav-trigger.active,
+    .nav-item:hover>.nav-trigger { color: var(--sage); }
+
+    header:not(.solid) nav.primary-nav>a.active,
+    header:not(.solid) nav.primary-nav>a:hover,
+    header:not(.solid) .nav-item>.nav-trigger.active,
+    header:not(.solid) .nav-item:hover>.nav-trigger { color: var(--white); }
+
+    nav.primary-nav>a.active::after,
+    .nav-item>.nav-trigger.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      background: var(--sage);
     }
 
-    .nav-item:hover .nav-caret,
-    .nav-item:focus-within .nav-caret {
-      transform: rotate(180deg);
+    header:not(.solid) nav.primary-nav>a.active::after,
+    header:not(.solid) .nav-item>.nav-trigger.active::after {
+      background: var(--white);
     }
+
+    /* ===== NAV DROPDOWN (About Us) ===== */
+    .nav-item { position: relative; }
+    .nav-caret { display: inline-block; transition: transform .25s ease; flex: none; }
+    .nav-item:hover .nav-caret,
+    .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
 
     .nav-dropdown {
-      /* starts flush against the trigger (no gap) with transparent top padding acting as a
-       hoverable bridge, so moving the mouse from the trigger into the menu never breaks :hover */
       position: absolute;
       top: 100%;
       left: 50%;
@@ -326,9 +236,7 @@
     }
 
     .nav-item:hover .nav-dropdown-inner,
-    .nav-item:focus-within .nav-dropdown-inner {
-      transform: translateY(0);
-    }
+    .nav-item:focus-within .nav-dropdown-inner { transform: translateY(0); }
 
     nav.primary-nav .nav-dropdown a {
       display: block;
@@ -350,7 +258,7 @@
     .nav-right-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
       flex: none;
       justify-self: end;
       grid-column: 3;
@@ -367,10 +275,7 @@
       box-shadow: 0 4px 14px rgba(84, 57, 126, .28);
     }
 
-    .nav-cta:hover {
-      background: var(--sage-dark);
-      color: var(--white) !important;
-    }
+    .nav-cta:hover { background: var(--sage-dark); color: var(--white) !important; }
 
     .burger {
       display: none;
@@ -379,351 +284,58 @@
       background: none;
       border: none;
       padding: 6px;
-      color: var(--ink);
     }
+    .burger span { width: 24px; height: 2px; background: currentColor; display: block; }
 
-    .burger span {
-      width: 24px;
-      height: 2px;
-      background: currentColor;
-      display: block;
+    header:not(.solid) .burger { color: var(--white); }
+    header.solid .burger { color: var(--ink); }
+
+    /* ===== HERO SLIDER (from inde2.html) ===== */
+    .hero{ position:relative; height:100vh; min-height:600px; max-height:920px; overflow:hidden; }
+    .slide{
+      position:absolute; inset:0; opacity:0; visibility:hidden;
+      transition:opacity 1s ease;
+      background-size:cover; background-position:center;
     }
-
-    /* ===== HERO — clean white, subtle purple wave, single panel ===== */
-    .hero-new {
-      position: relative;
-      overflow: hidden;
-      background: var(--white);
-      padding: 168px 0 100px;
+    .slide.active{ opacity:1; visibility:visible; }
+    .slide::after{
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(20,24,22,.55) 0%, rgba(20,24,22,.35) 45%, rgba(20,24,22,.65) 100%);
     }
-
-    .hero-new::before {
-      /* soft purple gradient glow, top-left */
-      content: '';
-      position: absolute;
-      top: -220px;
-      left: -160px;
-      width: 620px;
-      height: 620px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 92, 184, .20) 0%, rgba(124, 92, 184, 0) 70%);
-      z-index: 0;
-      pointer-events: none;
+    .slide:first-child::after{
+      background:linear-gradient(180deg, rgba(20,24,22,.32) 0%, rgba(20,24,22,.18) 45%, rgba(20,24,22,.42) 100%);
     }
-
-    .hero-new::after {
-      /* soft purple gradient glow, right side */
-      content: '';
-      position: absolute;
-      top: 10%;
-      right: -220px;
-      width: 560px;
-      height: 560px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 92, 184, .16) 0%, rgba(124, 92, 184, 0) 70%);
-      z-index: 0;
-      pointer-events: none;
+    .slide-content{
+      position:relative; z-index:2; height:100%;
+      display:flex; flex-direction:column; justify-content:center;
+      max-width:640px; padding:0 28px; margin:0 auto; text-align:left;
     }
-
-    .hero-wave {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -2px;
-      width: 100%;
-      line-height: 0;
-      z-index: 0;
-      pointer-events: none;
+    .hero .wrap{ height:100%; position:relative; }
+    .slide-inner{
+      position:absolute; left:28px; right:28px; bottom:14%;
+      max-width:600px; color:var(--white); z-index:3;
     }
+    .slide-inner .eyebrow{ color:var(--sage-light); }
+    .slide-inner h1{ font-size:clamp(30px,4.2vw,50px); color:var(--white); margin:.35em 0 .4em; }
+    .slide-inner p{ font-size:17px; color:rgba(255,255,255,.88); max-width:520px; }
+    .slide-cta{ display:flex; gap:14px; margin-top:10px; flex-wrap:wrap; }
 
-    .hero-wave svg {
-      width: 100%;
-      height: auto;
-      display: block;
+    .hero-dots{
+      position:absolute; right:28px; bottom:14%; z-index:4;
+      display:flex; flex-direction:column; gap:10px;
     }
-
-    .hero-new-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 56px;
-      align-items: center;
+    .hero-dots button{
+      width:10px; height:10px; border-radius:50%; border:1.5px solid rgba(255,255,255,.8);
+      background:transparent; padding:0;
     }
-
-    .hero-text {
-      max-width: 600px;
+    .hero-dots button.active{ background:var(--white); }
+    .hero-scroll-cue{
+      position:absolute; left:50%; bottom:34px; transform:translateX(-50%);
+      color:rgba(255,255,255,.75); font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+      z-index:4; display:flex; flex-direction:column; align-items:center; gap:8px;
     }
-
-    .hero-text .eyebrow {
-      color: var(--sage);
-    }
-
-    .hero-text .tagline {
-      font-style: italic;
-      font-weight: 600;
-      color: var(--sage-dark);
-      font-size: 15px;
-      margin: 0 0 .4em;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(32px, 4.4vw, 52px);
-      color: var(--ink);
-      margin: .35em 0 .45em;
-    }
-
-    .hero-text p.lead {
-      font-size: 17px;
-      color: var(--gray-600);
-      max-width: 520px;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 14px;
-      margin-top: 26px;
-      flex-wrap: wrap;
-    }
-
-    .btn-outline-purple {
-      background: rgba(124, 92, 184, .06);
-      color: var(--sage-dark);
-      border-color: rgba(124, 92, 184, .4);
-    }
-
-    .btn-outline-purple:hover {
-      background: rgba(124, 92, 184, .14);
-      border-color: var(--sage);
-    }
-
-    /* abstract glassy visual */
-    .hero-glass {
-      position: relative;
-      height: 420px;
-    }
-
-    .hero-glass .blob {
-      position: absolute;
-      border-radius: 32px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, .55), rgba(124, 92, 184, .18));
-      border: 1px solid rgba(255, 255, 255, .6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 20px 50px rgba(84, 57, 126, .14), inset 0 1px 0 rgba(255, 255, 255, .6);
-    }
-
-    .hero-glass .blob-1 {
-      width: 78%;
-      height: 78%;
-      top: 6%;
-      left: 8%;
-      border-radius: 40px;
-    }
-
-    .hero-glass .blob-2 {
-      width: 46%;
-      height: 46%;
-      bottom: 0;
-      right: 0;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(124, 92, 184, .30), rgba(255, 255, 255, .4));
-    }
-
-    .hero-glass .blob-3 {
-      width: 30%;
-      height: 30%;
-      top: 0;
-      right: 12%;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, .6), rgba(124, 92, 184, .12));
-    }
-
-    .hero-glass .glass-building {
-      position: absolute;
-      top: 12%;
-      left: 16%;
-      width: 34%;
-      height: auto;
-      opacity: .9;
-    }
-
-    .hero-glass .people-row {
-      position: absolute;
-      left: 12%;
-      bottom: 14%;
-      display: flex;
-      align-items: flex-end;
-      gap: 10px;
-      z-index: 2;
-    }
-
-    .hero-glass .person-chip {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, .75);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      box-shadow: 0 10px 24px rgba(84, 57, 126, .16), inset 0 1px 0 rgba(255, 255, 255, .7);
-      border: 1px solid rgba(255, 255, 255, .7);
-    }
-
-    .hero-glass .person-chip-lg {
-      width: 64px;
-      height: 64px;
-    }
-
-    @media (max-width:980px) {
-      .hero-new {
-        min-height: 100vh;
-        /* Ketinggian penuh skrin */
-        min-height: 100svh;
-        /* Sokongan lebih baik untuk browser mobile */
-        display: flex;
-        align-items: center;
-        /* Letak ayat betul-betul di tengah secara menegak */
-        padding-top: 80px;
-        /* Jarak atas untuk elak tindih dengan header */
-        padding-bottom: 60px;
-      }
-
-      .hero-new-inner {
-        grid-template-columns: 1fr;
-        gap: 0;
-        width: 100%;
-      }
-
-      .hero-glass {
-        display: none;
-      }
-    }
-
-    @media (max-width:600px) {
-      .hero-new {
-        padding: 80px 0 56px;
-      }
-
-      .hero-new-inner {
-        gap: 24px;
-      }
-
-      .hero-text {
-        text-align: center;
-        margin: 0 auto;
-        max-width: 100%;
-      }
-
-      .hero-text .eyebrow {
-        font-size: 11.5px;
-        letter-spacing: .10em;
-      }
-
-      .hero-text h1 {
-        font-size: 28px;
-        line-height: 1.22;
-        margin: .5em 0 .42em;
-        padding: 0 4px;
-      }
-
-      .hero-text p.lead {
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 14.5px;
-        line-height: 1.65;
-        padding: 0 4px;
-      }
-
-      .hero-cta {
-        justify-content: center;
-        margin-top: 20px;
-        gap: 10px;
-      }
-
-      .hero-cta .btn {
-        flex: 1 1 auto;
-        justify-content: center;
-        padding: 13px 18px;
-        font-size: 14px;
-        min-width: 150px;
-      }
-
-      .hero-glass {
-        height: 230px;
-        max-width: 280px;
-        border-radius: 32px;
-        overflow: hidden;
-        background: linear-gradient(160deg, rgba(124, 92, 184, .10), rgba(124, 92, 184, .02));
-        box-shadow: 0 16px 40px rgba(84, 57, 126, .10);
-      }
-
-      .hero-glass .blob-1 {
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        border-radius: 32px;
-        box-shadow: none;
-        border: none;
-      }
-
-      .hero-glass .blob-3 {
-        display: none;
-      }
-
-      .hero-glass .blob-2 {
-        width: 52%;
-        height: 52%;
-      }
-
-      .hero-glass .glass-building {
-        top: 16%;
-        left: 12%;
-        width: 32%;
-      }
-
-      .hero-glass .people-row {
-        left: 50%;
-        bottom: 12%;
-        transform: translateX(-50%);
-        gap: 8px;
-      }
-
-      .hero-glass .person-chip {
-        width: 44px;
-        height: 44px;
-      }
-
-      .hero-glass .person-chip-lg {
-        width: 54px;
-        height: 54px;
-      }
-    }
-
-    @media (max-width:380px) {
-      .hero-new {
-        padding: 70px 0 48px;
-      }
-
-      .hero-text h1 {
-        font-size: 25px;
-      }
-
-      .hero-text p.lead {
-        font-size: 13.5px;
-      }
-
-      .hero-cta {
-        flex-direction: column;
-      }
-
-      .hero-cta .btn {
-        width: 100%;
-      }
-    }
+    .hero-scroll-cue .line{ width:1px; height:34px; background:rgba(255,255,255,.6); animation:pulseLine 2.2s ease-in-out infinite; }
+    @keyframes pulseLine{ 0%,100%{opacity:.3;} 50%{opacity:1;} }
 
     /* ===== PAGE BANNER (non-home pages) ===== */
     .page-banner {
@@ -752,14 +364,8 @@
       width: 100%;
     }
 
-    .page-banner .eyebrow {
-      color: var(--sage-light);
-    }
-
-    .page-banner h1 {
-      color: var(--white);
-      font-size: clamp(28px, 4vw, 42px);
-    }
+    .page-banner .eyebrow { color: var(--sage-light); }
+    .page-banner h1 { color: var(--white); font-size: clamp(28px, 4vw, 42px); }
 
     /* ===== OUR EXPERTISE (Why Choose Us) ===== */
     .why-grid {
@@ -777,39 +383,13 @@
       transition: transform .25s ease, box-shadow .25s ease;
     }
 
-    .why-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .why-card .why-img {
-      height: 150px;
-      overflow: hidden;
-    }
-
-    .why-card .why-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .4s ease;
-    }
-
-    .why-card:hover .why-img img {
-      transform: scale(1.06);
-    }
-
-    .why-card .why-body {
-      padding: 22px 22px 26px;
-    }
-
-    .why-card h3 {
-      font-size: 16.5px;
-    }
-
-    .why-card p {
-      font-size: 14px;
-      color: var(--gray-600);
-      margin: 0;
-    }
+    .why-card:hover { transform: translateY(-4px); }
+    .why-card .why-img { height: 150px; overflow: hidden; }
+    .why-card .why-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .why-card:hover .why-img img { transform: scale(1.06); }
+    .why-card .why-body { padding: 22px 22px 26px; }
+    .why-card h3 { font-size: 16.5px; }
+    .why-card p { font-size: 14px; color: var(--gray-600); margin: 0; }
 
     /* ===== SERVICES (home preview) ===== */
     .services-wrap {
@@ -824,12 +404,7 @@
       overflow: hidden;
       height: 460px;
     }
-
-    .services-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .services-media img { width: 100%; height: 100%; object-fit: cover; }
 
     .service-list-item {
       display: flex;
@@ -842,10 +417,7 @@
       position: relative;
     }
 
-    .service-list-item:first-child {
-      padding-top: 14px;
-    }
-
+    .service-list-item:first-child { padding-top: 14px; }
     .service-list-item:hover {
       background: var(--sage-light);
       transform: translateX(4px);
@@ -865,23 +437,14 @@
       box-shadow: 0 6px 14px rgba(124, 92, 184, .16), inset 0 1px 0 rgba(255, 255, 255, .6);
       transition: transform .25s ease, background .25s ease;
     }
-
     .service-list-item:hover .ic {
       background: var(--sage);
       color: var(--white);
       transform: scale(1.08) rotate(-4deg);
     }
 
-    .service-list-item h4 {
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-
-    .service-list-item p {
-      font-size: 14px;
-      color: var(--gray-600);
-      margin: 0;
-    }
+    .service-list-item h4 { font-size: 16px; margin-bottom: 4px; }
+    .service-list-item p { font-size: 14px; color: var(--gray-600); margin: 0; }
 
     /* Service cards grid (Service page) */
     .service-grid {
@@ -889,7 +452,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
-
     .service-card {
       position: relative;
       border-radius: var(--radius);
@@ -899,13 +461,10 @@
       box-shadow: var(--shadow);
       transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
     }
-
     .service-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 4px;
       z-index: 3;
       background: linear-gradient(90deg, var(--sage), var(--sage-dark));
@@ -913,1088 +472,316 @@
       transform-origin: left;
       transition: transform .35s ease;
     }
-
     .service-card:hover {
       transform: translateY(-7px);
       box-shadow: 0 22px 44px rgba(84, 57, 126, .20);
       border-color: transparent;
     }
-
-    .service-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .service-card .thumb {
-      height: 170px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .service-card .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease;
-    }
-
-    .service-card:hover .thumb img {
-      transform: scale(1.08);
-    }
-
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card .thumb { height: 170px; overflow: hidden; position: relative; }
+    .service-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .service-card:hover .thumb img { transform: scale(1.08); }
     .service-card .thumb::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, rgba(38, 43, 40, 0) 55%, rgba(38, 43, 40, .35));
     }
-
     .service-card .num {
       position: absolute;
-      top: 14px;
-      left: 14px;
-      z-index: 2;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      top: 14px; left: 14px; z-index: 2;
+      width: 36px; height: 36px; border-radius: 50%;
       background: rgba(255, 255, 255, .92);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      font-size: 13.5px;
-      color: var(--sage-dark);
-      box-shadow: 0 6px 16px rgba(38, 43, 40, .18);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif; font-weight: 700; font-size: 13.5px;
+      color: var(--sage-dark); box-shadow: 0 6px 16px rgba(38, 43, 40, .18);
     }
-
-    .service-card .body {
-      padding: 22px;
-    }
-
-    .service-card h3 {
-      font-size: 17px;
-    }
-
-    .service-card p {
-      font-size: 14.5px;
-      color: var(--gray-600);
-    }
-
-    .service-card .service-more {
-      margin-top: 14px;
-      padding: 9px 18px;
-      font-size: 13.5px;
-    }
-
-    .service-card:hover .service-more {
-      background: var(--sage);
-      color: var(--white);
-      border-color: var(--sage);
-    }
+    .service-card .body { padding: 22px; }
+    .service-card h3 { font-size: 17px; }
+    .service-card p { font-size: 14.5px; color: var(--gray-600); }
+    .service-card .service-more { margin-top: 14px; padding: 9px 18px; font-size: 13.5px; }
+    .service-card:hover .service-more { background: var(--sage); color: var(--white); border-color: var(--sage); }
 
     /* Service detail page */
-    .service-detail {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .service-detail p {
-      color: var(--gray-600);
-      font-size: 15.5px;
-    }
-
+    .service-detail { max-width: 760px; margin: 0 auto; }
+    .service-detail p { color: var(--gray-600); font-size: 15.5px; }
     .service-detail .key-areas {
-      background: var(--bg);
-      border-radius: var(--radius);
-      padding: 28px 30px;
-      margin: 28px 0;
+      background: var(--bg); border-radius: var(--radius); padding: 28px 30px; margin: 28px 0;
     }
-
-    .service-detail .key-areas h4 {
-      font-size: 15.5px;
-      margin-bottom: 14px;
-    }
-
-    .service-detail .key-areas ul {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .service-detail .key-areas li {
-      display: flex;
-      gap: 10px;
-      color: var(--gray-600);
-      font-size: 14.5px;
-    }
-
-    .service-detail .key-areas li::before {
-      content: '✓';
-      color: var(--sage-dark);
-      font-weight: 700;
-      flex: none;
-    }
-
-    .service-detail-cta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
+    .service-detail .key-areas h4 { font-size: 15.5px; margin-bottom: 14px; }
+    .service-detail .key-areas ul { display: flex; flex-direction: column; gap: 10px; }
+    .service-detail .key-areas li { display: flex; gap: 10px; color: var(--gray-600); font-size: 14.5px; }
+    .service-detail .key-areas li::before { content: '✓'; color: var(--sage-dark); font-weight: 700; flex: none; }
+    .service-detail-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 
     /* ===== CLIENTS / TESTIMONIALS ===== */
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .client-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      padding: 28px;
-    }
-
-    .client-card .quote-mark {
-      font-family: 'Sora', sans-serif;
-      font-size: 38px;
-      color: var(--sage);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .client-card p.quote {
-      color: var(--gray-700);
-      font-size: 15px;
-    }
-
-    .client-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .client-row img {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .client-row .name {
-      font-weight: 600;
-      font-size: 14.5px;
-    }
-
-    .client-row .role {
-      font-size: 12.5px;
-      color: var(--gray-500);
-    }
+    .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .client-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
+    .client-card .quote-mark { font-family: 'Sora', sans-serif; font-size: 38px; color: var(--sage); line-height: 1; margin-bottom: 10px; }
+    .client-card p.quote { color: var(--gray-700); font-size: 15px; }
+    .client-row { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+    .client-row img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .client-row .name { font-weight: 600; font-size: 14.5px; }
+    .client-row .role { font-size: 12.5px; color: var(--gray-500); }
 
     /* ===== HOURS ===== */
     .hours-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-      background: var(--sage-dark);
-      color: var(--white);
-      border-radius: 24px;
-      padding: 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+      background: var(--sage-dark); color: var(--white); border-radius: 24px; padding: 56px;
     }
-
-    .hours-wrap .eyebrow {
-      color: var(--sage-light);
-    }
-
-    .hours-wrap h2 {
-      color: var(--white);
-    }
-
-    .hours-wrap p.lead {
-      color: rgba(255, 255, 255, .82);
-    }
-
-    .hours-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .hours-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .16);
-      font-size: 15px;
-    }
-
-    .hours-list li:last-child {
-      border-bottom: none;
-    }
-
-    .hours-list .day {
-      color: rgba(255, 255, 255, .9);
-      font-weight: 500;
-    }
-
-    .hours-list .time {
-      color: var(--white);
-      font-weight: 600;
-    }
+    .hours-wrap .eyebrow { color: var(--sage-light); }
+    .hours-wrap h2 { color: var(--white); }
+    .hours-wrap p.lead { color: rgba(255, 255, 255, .82); }
+    .hours-list { display: flex; flex-direction: column; gap: 0; }
+    .hours-list li { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, .16); font-size: 15px; }
+    .hours-list li:last-child { border-bottom: none; }
+    .hours-list .day { color: rgba(255, 255, 255, .9); font-weight: 500; }
+    .hours-list .time { color: var(--white); font-weight: 600; }
 
     /* ===== FOOTER ===== */
-    footer {
-      background: var(--ink);
-      color: rgba(255, 255, 255, .75);
-      padding: 64px 0 28px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-      gap: 40px;
-    }
-
-    .footer-brand .logo {
-      color: var(--white);
-      margin-bottom: 14px;
-    }
-
-    .footer-brand p {
-      font-size: 14px;
-      color: rgba(255, 255, 255, .6);
-      max-width: 280px;
-    }
-
-    footer h4 {
-      color: var(--white);
-      font-size: 14.5px;
-      margin-bottom: 16px;
-    }
-
-    footer ul li {
-      margin-bottom: 11px;
-      font-size: 14px;
-    }
-
-    footer ul li a:hover {
-      color: var(--white);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
+    footer { background: var(--ink); color: rgba(255, 255, 255, .75); padding: 64px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; }
+    .footer-brand .logo { color: var(--white); margin-bottom: 14px; }
+    .footer-brand p { font-size: 14px; color: rgba(255, 255, 255, .6); max-width: 280px; }
+    footer h4 { color: var(--white); font-size: 14.5px; margin-bottom: 16px; }
+    footer ul li { margin-bottom: 11px; font-size: 14px; }
+    footer ul li a:hover { color: var(--white); }
+    .footer-social { display: flex; gap: 12px; margin-top: 16px; }
     .footer-social a {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, .25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .25);
+      display: flex; align-items: center; justify-content: center;
     }
-
-    .footer-social a:hover {
-      background: var(--sage);
-      border-color: var(--sage);
-    }
-
+    .footer-social a:hover { background: var(--sage); border-color: var(--sage); }
     .footer-bottom {
-      margin-top: 52px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, .14);
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      color: rgba(255, 255, 255, .5);
-      flex-wrap: wrap;
-      gap: 10px;
+      margin-top: 52px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .14);
+      display: flex; justify-content: space-between; font-size: 13px; color: rgba(255, 255, 255, .5); flex-wrap: wrap; gap: 10px;
     }
 
-    /* ===== GENERIC PAGE BLOCKS (About / Contact / Appointment / Insights / Resources) ===== */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .two-col img {
-      border-radius: 20px;
-      width: 100%;
-      height: 440px;
-      object-fit: cover;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 10px;
-    }
-
-    .value-card {
-      padding: 26px;
-      border-radius: var(--radius);
-      background: var(--bg);
-    }
-
-    .value-card h4 {
-      font-size: 16px;
-    }
-
-    .value-card p {
-      font-size: 14px;
-      color: var(--gray-600);
-      margin: 0;
-    }
+    /* ===== GENERIC PAGE BLOCKS ===== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .two-col img { border-radius: 20px; width: 100%; height: 440px; object-fit: cover; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 10px; }
+    .value-card { padding: 26px; border-radius: var(--radius); background: var(--bg); }
+    .value-card h4 { font-size: 16px; }
+    .value-card p { font-size: 14px; color: var(--gray-600); margin: 0; }
 
     /* ===== TEAM ===== */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 26px;
-    }
-
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
     .team-card {
-      text-align: center;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: transform .3s ease, box-shadow .3s ease;
+      text-align: center; background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); overflow: hidden; transition: transform .3s ease, box-shadow .3s ease;
     }
-
-    .team-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-
-    .team-card .photo {
-      height: 220px;
-      overflow: hidden;
-    }
-
-    .team-card .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .4s ease;
-    }
-
-    .team-card:hover .photo img {
-      transform: scale(1.06);
-    }
-
-    .team-card .info {
-      padding: 20px 18px 24px;
-    }
-
-    .team-card h4 {
-      font-size: 16px;
-      margin-bottom: 3px;
-    }
-
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .team-card .photo { height: 220px; overflow: hidden; }
+    .team-card .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .team-card:hover .photo img { transform: scale(1.06); }
+    .team-card .info { padding: 20px 18px 24px; }
+    .team-card h4 { font-size: 16px; margin-bottom: 3px; }
     .team-card .role {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--sage-dark);
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      margin-bottom: 10px;
+      font-size: 13px; font-weight: 600; color: var(--sage-dark); text-transform: uppercase;
+      letter-spacing: .05em; margin-bottom: 10px;
     }
-
-    .team-card p {
-      font-size: 13.5px;
-      color: var(--gray-600);
-      margin: 0;
-    }
-
-    .team-card .socials {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      margin-top: 14px;
-    }
-
+    .team-card p { font-size: 13.5px; color: var(--gray-600); margin: 0; }
+    .team-card .socials { display: flex; gap: 8px; justify-content: center; margin-top: 14px; }
     .team-card .socials a {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid var(--gray-200);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-600);
-      transition: all .2s ease;
+      width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: center; color: var(--gray-600); transition: all .2s ease;
     }
-
-    .team-card .socials a:hover {
-      background: var(--sage);
-      border-color: var(--sage);
-      color: var(--white);
-    }
+    .team-card .socials a:hover { background: var(--sage); border-color: var(--sage); color: var(--white); }
 
     /* ===== GALLERY ===== */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 190px;
-      gap: 18px;
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 190px; gap: 18px; }
+    .gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .gallery-item:hover img { transform: scale(1.08); }
     .gallery-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(84, 57, 126, 0) 55%, rgba(38, 20, 58, .55));
-      opacity: 0;
-      transition: opacity .3s ease;
+      opacity: 0; transition: opacity .3s ease;
     }
-
     .gallery-item .cap {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      color: var(--white);
-      font-size: 13.5px;
-      font-weight: 600;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity .3s ease, transform .3s ease;
-      z-index: 2;
+      position: absolute; left: 16px; right: 16px; bottom: 14px; color: var(--white);
+      font-size: 13.5px; font-weight: 600; opacity: 0; transform: translateY(8px);
+      transition: opacity .3s ease, transform .3s ease; z-index: 2;
     }
+    .gallery-item:hover::after, .gallery-item:hover .cap { opacity: 1; transform: translateY(0); }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
 
-    .gallery-item:hover::after,
-    .gallery-item:hover .cap {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .gallery-item.tall {
-      grid-row: span 2;
-    }
-
-    .gallery-item.wide {
-      grid-column: span 2;
-    }
-
-    /* ===== AWARDS — elegant certificate/banner style ===== */
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
+    /* ===== AWARDS ===== */
+    .awards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
     .award-card {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      gap: 22px;
+      position: relative; overflow: hidden; display: flex; align-items: center; gap: 22px;
       background: linear-gradient(135deg, #ffffff 0%, var(--bg) 100%);
-      border: 1px solid var(--gray-200);
-      border-radius: 18px;
-      padding: 26px 28px;
+      border: 1px solid var(--gray-200); border-radius: 18px; padding: 26px 28px;
       transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
     }
-
     .award-card::before {
-      /* soft premium glow, top-right */
-      content: '';
-      position: absolute;
-      top: -46%;
-      right: -18%;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 92, 184, .14) 0%, rgba(124, 92, 184, 0) 70%);
-      pointer-events: none;
-      transition: opacity .35s ease;
-      opacity: .7;
+      content: ''; position: absolute; top: -46%; right: -18%; width: 170px; height: 170px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(124, 92, 184, .14) 0%, rgba(124, 92, 184, 0) 70%);
+      pointer-events: none; transition: opacity .35s ease; opacity: .7;
     }
-
     .award-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(124, 92, 184, .35);
-      box-shadow: 0 20px 44px rgba(84, 57, 126, .16);
+      transform: translateY(-5px); border-color: rgba(124, 92, 184, .35); box-shadow: 0 20px 44px rgba(84, 57, 126, .16);
     }
-
-    .award-card:hover::before {
-      opacity: 1;
-    }
-
+    .award-card:hover::before { opacity: 1; }
     .award-card .emblem {
-      position: relative;
-      flex: none;
-      width: 74px;
-      height: 74px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--sage-light), #ffffff);
-      border: 1px solid rgba(124, 92, 184, .3);
-      color: var(--sage-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative; flex: none; width: 74px; height: 74px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage-light), #ffffff); border: 1px solid rgba(124, 92, 184, .3);
+      color: var(--sage-dark); display: flex; align-items: center; justify-content: center;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7), 0 8px 18px rgba(124, 92, 184, .16);
       transition: transform .35s ease, box-shadow .35s ease;
     }
-
     .award-card:hover .emblem {
-      transform: scale(1.07);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 10px 22px rgba(124, 92, 184, .24);
+      transform: scale(1.07); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 10px 22px rgba(124, 92, 184, .24);
     }
+    .award-card .content { position: relative; min-width: 0; }
+    .award-card .year { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--sage); }
+    .award-card h4 { font-size: 16.5px; margin: 3px 0 6px; }
+    .award-card p { font-size: 14px; color: var(--gray-600); margin: 0; }
 
-    .award-card .content {
-      position: relative;
-      min-width: 0;
+    /* ===== FORMS & CONTACT ===== */
+    form.form-card { background: var(--bg); border-radius: 20px; padding: 36px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 7px; color: var(--gray-700); }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--gray-300);
+      font-family: inherit; font-size: 14.5px; background: var(--white); color: var(--ink);
     }
-
-    .award-card .year {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      color: var(--sage);
-    }
-
-    .award-card h4 {
-      font-size: 16.5px;
-      margin: 3px 0 6px;
-    }
-
-    .award-card p {
-      font-size: 14px;
-      color: var(--gray-600);
-      margin: 0;
-    }
-
-    @media (max-width:980px) {
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 160px;
-      }
-    }
-
-    @media (max-width:600px) {
-      .team-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-item.wide {
-        grid-column: span 2;
-      }
-
-      .awards-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .award-card {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-      }
-    }
-
-    form.form-card {
-      background: var(--bg);
-      border-radius: 20px;
-      padding: 36px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .field {
-      margin-bottom: 18px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 13.5px;
-      font-weight: 600;
-      margin-bottom: 7px;
-      color: var(--gray-700);
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--gray-300);
-      font-family: inherit;
-      font-size: 14.5px;
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      outline: 2px solid var(--sage);
-      outline-offset: 1px;
-      border-color: var(--sage);
-    }
-
-    .field textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    .form-note {
-      font-size: 13px;
-      color: var(--gray-500);
-      margin-top: 10px;
-    }
-
+    .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--sage); outline-offset: 1px; border-color: var(--sage); }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form-note { font-size: 13px; color: var(--gray-500); margin-top: 10px; }
     .form-success {
-      display: none;
-      background: var(--sage-light);
-      color: var(--sage-dark);
-      padding: 16px 18px;
-      border-radius: 12px;
-      font-size: 14.5px;
-      margin-bottom: 18px;
-      font-weight: 500;
+      display: none; background: var(--sage-light); color: var(--sage-dark); padding: 16px 18px;
+      border-radius: 12px; font-size: 14.5px; margin-bottom: 18px; font-weight: 500;
     }
-
-    .form-success.show {
-      display: block;
-    }
-
-    .contact-info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 40px;
-    }
-
-    .info-card {
-      padding: 24px;
-      border-radius: var(--radius);
-      border: 1px solid var(--gray-200);
-    }
-
+    .form-success.show { display: block; }
+    .contact-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+    .info-card { padding: 24px; border-radius: var(--radius); border: 1px solid var(--gray-200); }
     .info-card .ic {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--sage-light);
-      color: var(--sage-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 14px;
+      width: 38px; height: 38px; border-radius: 10px; background: var(--sage-light); color: var(--sage-dark);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
     }
+    .info-card h4 { font-size: 15px; }
+    .info-card p { font-size: 14px; color: var(--gray-600); margin: 0; }
 
-    .info-card h4 {
-      font-size: 15px;
-    }
+    /* ===== BLOG ===== */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .blog-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--gray-200); }
+    .blog-card .thumb { height: 190px; overflow: hidden; }
+    .blog-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-card .body { padding: 22px; }
+    .blog-card .cat { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--sage); }
+    .blog-card h3 { font-size: 16.5px; margin: 8px 0 10px; }
+    .blog-card p { font-size: 14px; color: var(--gray-600); }
+    .blog-card .readmore { font-size: 13.5px; font-weight: 600; color: var(--sage-dark); }
 
-    .info-card p {
-      font-size: 14px;
-      color: var(--gray-600);
-      margin: 0;
-    }
+    /* ===== APPOINTMENT ===== */
+    .appt-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; }
+    .appt-side { align-self: start; }
+    .appt-side .info-card { margin-bottom: 16px; }
 
-    /* Blog */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .blog-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--gray-200);
-    }
-
-    .blog-card .thumb {
-      height: 190px;
-      overflow: hidden;
-    }
-
-    .blog-card .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .blog-card .body {
-      padding: 22px;
-    }
-
-    .blog-card .cat {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--sage);
-    }
-
-    .blog-card h3 {
-      font-size: 16.5px;
-      margin: 8px 0 10px;
-    }
-
-    .blog-card p {
-      font-size: 14px;
-      color: var(--gray-600);
-    }
-
-    .blog-card .readmore {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--sage-dark);
-    }
-
-    /* Appointment layout */
-    .appt-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 48px;
-    }
-
-    .appt-side {
-      align-self: start;
-    }
-
-    .appt-side .info-card {
-      margin-bottom: 16px;
-    }
-
-    /* mobile nav panel */
+    /* ===== MOBILE NAV PANEL ===== */
     .mobile-panel {
-      position: fixed;
-      inset: 0 0 0 auto;
-      width: min(320px, 84%);
-      background: var(--white);
-      z-index: 1200;
-      box-shadow: -10px 0 40px rgba(0, 0, 0, .15);
-      transform: translateX(100%);
-      transition: transform .3s ease;
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
+      position: fixed; inset: 0 0 0 auto; width: min(320px, 84%); background: var(--white); z-index: 1200;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, .15); transform: translateX(100%); transition: transform .3s ease;
+      padding: 28px 24px; display: flex; flex-direction: column; gap: 22px;
     }
-
-    .mobile-panel.open {
-      transform: translateX(0);
-    }
-
-    .mobile-panel a {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .mobile-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(20, 24, 22, .4);
-      z-index: 1100;
-      display: none;
-    }
-
-    .mobile-overlay.open {
-      display: block;
-    }
-
-    .mobile-close {
-      align-self: flex-end;
-      background: none;
-      border: none;
-      font-size: 22px;
-      color: var(--ink);
-    }
-
-    /* mobile submenu (About Us group) */
-    .mobile-group {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
+    .mobile-panel.open { transform: translateX(0); }
+    .mobile-panel a { font-size: 16px; font-weight: 600; color: var(--ink); }
+    .mobile-overlay { position: fixed; inset: 0; background: rgba(20, 24, 22, .4); z-index: 1100; display: none; }
+    .mobile-overlay.open { display: block; }
+    .mobile-close { align-self: flex-end; background: none; border: none; font-size: 22px; color: var(--ink); }
+    .mobile-group { display: flex; flex-direction: column; gap: 22px; }
     .mobile-group-trigger {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: inherit;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--ink);
+      display: flex; align-items: center; justify-content: space-between; width: 100%; background: none;
+      border: none; padding: 0; font-family: inherit; font-size: 16px; font-weight: 600; color: var(--ink);
     }
-
-    .mobile-group-trigger .nav-caret {
-      transition: transform .25s ease;
-      color: var(--gray-500);
-    }
-
-    .mobile-group.open .mobile-group-trigger .nav-caret {
-      transform: rotate(180deg);
-    }
-
+    .mobile-group-trigger .nav-caret { transition: transform .25s ease; color: var(--gray-500); }
+    .mobile-group.open .mobile-group-trigger .nav-caret { transform: rotate(180deg); }
     .mobile-submenu {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .3s ease, margin-top .3s ease;
-      margin-top: 0;
-      padding-left: 14px;
+      display: flex; flex-direction: column; gap: 16px; max-height: 0; overflow: hidden;
+      transition: max-height .3s ease, margin-top .3s ease; margin-top: 0; padding-left: 14px;
       border-left: 2px solid var(--gray-200);
     }
+    .mobile-group.open .mobile-submenu { max-height: 260px; margin-top: 16px; }
+    .mobile-submenu a { font-size: 14.5px; font-weight: 500; color: var(--gray-600); }
+    .mobile-submenu a:hover, .mobile-submenu a.active { color: var(--sage-dark); }
 
-    .mobile-group.open .mobile-submenu {
-      max-height: 260px;
-      margin-top: 16px;
-    }
-
-    .mobile-submenu a {
-      font-size: 14.5px;
-      font-weight: 500;
-      color: var(--gray-600);
-    }
-
-    .mobile-submenu a:hover,
-    .mobile-submenu a.active {
-      color: var(--sage-dark);
-    }
-
-    @media (max-width:1180px) {
-      .wrap {
-        padding: 0 22px;
-      }
-    }
-
+    /* ===== RESPONSIVE MEDIA QUERIES ===== */
+    @media (max-width:1180px) { .wrap { padding: 0 22px; } }
     @media (max-width:980px) {
-      nav.primary-nav {
-        display: none;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .burger {
-        display: flex;
-      }
-
-      .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .services-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .services-media {
-        height: 300px;
-        order: -1;
-      }
-
-      .clients-grid,
-      .service-grid,
-      .blog-grid,
-      .values-grid,
-      .contact-info-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hours-wrap {
-        grid-template-columns: 1fr;
-        padding: 40px 28px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .two-col img {
-        height: 300px;
-        order: -1;
-      }
-
-      .appt-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
+      nav.primary-nav { display: none; }
+      .nav-cta { display: none; }
+      .burger { display: flex; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-wrap { grid-template-columns: 1fr; }
+      .services-media { height: 300px; order: -1; }
+      .clients-grid, .service-grid, .blog-grid, .values-grid, .contact-info-grid { grid-template-columns: repeat(2, 1fr); }
+      .hours-wrap { grid-template-columns: 1fr; padding: 40px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .two-col img { height: 300px; order: -1; }
+      .appt-wrap { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
     }
-
     @media (max-width:760px) {
-      .logo img {
-        height: 40px;
-      }
-
-      .logo-mark {
-        width: 36px;
-        height: 36px;
-      }
-
-      header {
-        padding: 16px 0;
-      }
-
-      header.solid {
-        padding: 12px 0;
-      }
-
-      .hero-new {
-        padding-top: 100px;
-      }
-
-      .hero-cta {
-        gap: 10px;
-      }
-
-      .hero-cta .btn {
-        padding: 11px 20px;
-        font-size: 14px;
-      }
-
-      .page-banner {
-        min-height: 260px;
-      }
-
-      section {
-        padding: 72px 0;
-      }
-
-      .section-head {
-        max-width: 100%;
-      }
+      .logo img { height: 40px; }
+      .logo-mark { width: 36px; height: 36px; }
+      header { padding: 16px 0; }
+      header.solid { padding: 12px 0; }
+      
+      /* Hero slider mobile styles */
+      .hero { min-height: 520px; }
+      .slide-inner { left: 20px; right: 20px; }
+      .slide-cta { gap: 10px; }
+      .slide-cta .btn { padding: 11px 20px; font-size: 14px; }
+      
+      .page-banner { min-height: 260px; }
+      section { padding: 72px 0; }
+      .section-head { max-width: 100%; }
     }
-
     @media (max-width:600px) {
-      .wrap {
-        padding: 0 18px;
-      }
-
-      section {
-        padding: 56px 0;
-      }
-
-      .why-grid,
-      .clients-grid,
-      .service-grid,
-      .blog-grid,
-      .values-grid,
-      .contact-info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-
-      .why-card .why-img {
-        height: 170px;
-      }
-
-      .services-media {
-        height: 220px;
-      }
-
-      .two-col img {
-        height: 220px;
-      }
-
-      .hours-wrap {
-        padding: 30px 20px;
-        border-radius: 18px;
-      }
-
-      form.form-card {
-        padding: 24px 20px;
-      }
-
-      .mobile-panel {
-        width: 88%;
-        padding: 24px 20px;
-      }
+      .wrap { padding: 0 18px; }
+      section { padding: 56px 0; }
+      .why-grid, .clients-grid, .service-grid, .blog-grid, .values-grid, .contact-info-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .why-card .why-img { height: 170px; }
+      .services-media { height: 220px; }
+      .two-col img { height: 220px; }
+      .hours-wrap { padding: 30px 20px; border-radius: 18px; }
+      form.form-card { padding: 24px 20px; }
+      .mobile-panel { width: 88%; padding: 24px 20px; }
+      
+      /* Hero slider mobile tweaks */
+      .slide-inner { bottom: 16%; }
+      .hero-scroll-cue { display: none; }
+      .hero-dots { right: 18px; }
+      
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.wide { grid-column: span 2; }
+      .awards-grid { grid-template-columns: 1fr; }
+      .award-card { flex-direction: column; text-align: center; align-items: center; }
     }
-
     @media (max-width:420px) {
-      .btn {
-        padding: 12px 20px;
-        font-size: 14px;
-      }
-
-      .hero-text h1 {
-        font-size: 26px;
-      }
-
-      .nav-cta {
-        padding: 9px 16px;
-        font-size: 13.5px !important;
-      }
+      .btn { padding: 12px 20px; font-size: 14px; }
+      .nav-cta { padding: 9px 16px; font-size: 13.5px !important; }
+      
+      /* Hero slider text mobile */
+      .slide-inner h1 { font-size: 26px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ============ HEADER ============ -->
+  <!-- ============ HEADER (Dari index.html + Design inde2.html) ============ -->
   <header id="siteHeader">
     <div class="wrap nav-row">
       <a href="#" class="logo" data-page="home">
@@ -2009,6 +796,7 @@
         </span>
       </a>
 
+      <!-- Fungsi Menu Tengah Dikekalkan dari index.html -->
       <nav class="primary-nav" id="primaryNav">
         <a href="#" data-page="home" class="active">Home</a>
         <div class="nav-item" id="aboutNavItem">
@@ -2067,82 +855,56 @@
     <a href="#" data-page="contact">Contact Us</a>
   </div>
 
-  <!-- ============ HOME PAGE ============ -->
+  <!-- ============ MAIN CONTENT ============ -->
   <main>
     <div class="page active" id="page-home">
 
-      <!-- HERO -->
-      <section class="hero-new">
-        <div class="wrap hero-new-inner">
-          <div class="hero-text">
-            <p class="eyebrow">Organizational Mental Health</p>
-            <h1>Empowering Organizations Through Mental Health Excellence</h1>
-            <p class="lead">We help organizations build a culture that values mental well-being, strengthens resilience,
-              and supports people to perform at their best. Our approach focuses on creating healthy workplaces where
-              employees and businesses grow together.</p>
-            <div class="hero-cta">
-              <a href="#" class="btn btn-primary" data-page="service">Explore Our Services</a>
-              <a href="#" class="btn btn-outline-purple" data-page="about">Learn More</a>
-            </div>
+      <!-- ============ HERO SLIDER (Dari inde2.html, Text Dari index.html) ============ -->
+      <section class="hero" style="padding:0;">
+        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1800&q=75')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=1800&q=75')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=1800&q=75')"></div>
+
+        <div class="slide-inner" id="slideInner0" style="display:block;">
+          <p class="eyebrow">Organizational Mental Health</p>
+          <h1>Empowering Organizations Through Mental Health Excellence</h1>
+          <p>We help organizations build a culture that values mental well-being, strengthens resilience, and supports people to perform at their best.</p>
+          <div class="slide-cta">
+            <a href="#" class="btn btn-primary" data-page="service">Explore Our Services</a>
+            <a href="#" class="btn btn-ghost" data-page="about">Learn More</a>
           </div>
-
-          <div class="hero-glass" aria-hidden="true">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-3"></div>
-            <div class="blob blob-2"></div>
-
-            <!-- abstract workplace: building silhouette on the main glass panel -->
-            <svg class="glass-building" width="120" height="120" viewBox="0 0 120 120" fill="none">
-              <rect x="18" y="30" width="34" height="70" rx="4" fill="rgba(124,92,184,.16)" />
-              <rect x="58" y="14" width="40" height="86" rx="4" fill="rgba(124,92,184,.22)" />
-              <rect x="26" y="42" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.4)" />
-              <rect x="26" y="58" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.4)" />
-              <rect x="26" y="74" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.4)" />
-              <rect x="66" y="28" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)" />
-              <rect x="82" y="28" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)" />
-              <rect x="66" y="46" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)" />
-              <rect x="82" y="46" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)" />
-              <rect x="66" y="64" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)" />
-              <rect x="82" y="64" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)" />
-            </svg>
-
-            <!-- abstract people: three glass chips with figure silhouettes -->
-            <div class="people-row">
-              <div class="person-chip">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="8" r="3.6" fill="rgba(84,57,126,.55)" />
-                  <path d="M4 20c1.4-4 4.2-6 8-6s6.6 2 8 6" stroke="rgba(84,57,126,.55)" stroke-width="1.8"
-                    stroke-linecap="round" />
-                </svg>
-              </div>
-              <div class="person-chip person-chip-lg">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="8" r="3.8" fill="rgba(84,57,126,.7)" />
-                  <path d="M3.5 20.5c1.5-4.3 4.6-6.5 8.5-6.5s7 2.2 8.5 6.5" stroke="rgba(84,57,126,.7)"
-                    stroke-width="1.8" stroke-linecap="round" />
-                </svg>
-              </div>
-              <div class="person-chip">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="8" r="3.6" fill="rgba(84,57,126,.55)" />
-                  <path d="M4 20c1.4-4 4.2-6 8-6s6.6 2 8 6" stroke="rgba(84,57,126,.55)" stroke-width="1.8"
-                    stroke-linecap="round" />
-                </svg>
-              </div>
-            </div>
+        </div>
+        
+        <div class="slide-inner" id="slideInner1" style="display:none;">
+          <p class="eyebrow">Why Choose Us</p>
+          <h1>Human-Centric Strategies & Innovation</h1>
+          <p>We combine science, strategy, and empathy to deliver measurable impact for organisations across industries, integrating the latest psychological approaches.</p>
+          <div class="slide-cta">
+            <a href="#" class="btn btn-primary" data-page="service">Explore Our Services</a>
+            <a href="#" class="btn btn-ghost" data-page="about">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="slide-inner" id="slideInner2" style="display:none;">
+          <p class="eyebrow">Our Services</p>
+          <h1>Support that meets you where you are</h1>
+          <p>From one-on-one sessions to group support and simple self-guided tools, we offer a range of professional mental health solutions.</p>
+          <div class="slide-cta">
+            <a href="#" class="btn btn-primary" data-page="service">Explore Our Services</a>
+            <a href="#" class="btn btn-ghost" data-page="about">Learn More</a>
           </div>
         </div>
 
-        <div class="hero-wave">
-          <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,96 C240,150 480,20 720,48 C960,76 1200,140 1440,80 L1440,160 L0,160 Z"
-              fill="rgba(124,92,184,0.10)" />
-            <path d="M0,120 C280,80 520,150 760,110 C1000,70 1220,130 1440,110 L1440,160 L0,160 Z"
-              fill="rgba(124,92,184,0.16)" />
-          </svg>
+        <div class="hero-dots" id="heroDots">
+          <button class="active" data-slide="0" aria-label="Slide 1"></button>
+          <button data-slide="1" aria-label="Slide 2"></button>
+          <button data-slide="2" aria-label="Slide 3"></button>
         </div>
+        <div class="hero-scroll-cue"><span>Scroll</span><span class="line"></span></div>
       </section>
 
+      <!-- ============ BAKI KANDUNGAN HALAMAN (Dari index.html dikekalkan sepenuhnya) ============ -->
+      
       <!-- OUR EXPERTISE -->
       <section>
         <div class="wrap">
@@ -2968,8 +1730,7 @@
       </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: PRISMA – PSYCHOSOCIAL RISK MANAGEMENT FRAMEWORK ============ -->
-
+    <!-- ============ SERVICE DETAIL: PRISMA ============ -->
     <div class="page" id="page-service-prisma">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1800&q=75')">
@@ -2995,33 +1756,9 @@
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: PSYCHOSOCIAL TRAINED PERSON (PTP) CERTIFICATION PROGRAM ============ -->
-
+    <!-- ============ SERVICE DETAIL: PTP ============ -->
     <div class="page" id="page-service-ptp">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=1800&q=75')">
@@ -3040,10 +1777,6 @@
           <p>This program is designed to equip participants with the essential knowledge and competencies to identify,
             assess, and manage psychosocial risks within their organizations in alignment with PRISMA standards and DOSH
             guidelines.</p>
-          <p>Participants will gain a comprehensive understanding of workplace mental health, relevant legislation, and
-            psychosocial risk management strategies through expert-led sessions and practical case studies. Upon
-            successful completion, participants will be endorsed by ASV as certified Psychosocial Trained Persons,
-            empowering them to champion mental health and well-being within their organizations.</p>
           <div class="key-areas">
             <h4>Key Learning Areas</h4>
             <ul>
@@ -3062,33 +1795,9 @@
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: PEER SUPPORT PROGRAMME ============ -->
-
+    <!-- ============ SERVICE DETAIL: PEER SUPPORT ============ -->
     <div class="page" id="page-service-peer-support">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=1800&q=75')">
@@ -3105,48 +1814,15 @@
           <p>The Peer Support Program by Amaze Synergy Ventures (ASV) is a comprehensive, professionally structured
             training initiative designed to equip individuals with fundamental counseling, communication, and emotional
             support skills, certifying them as accredited peer supporters within their organizations.</p>
-          <p>This program aims to build an internal support ecosystem where employees can confidently provide
-            empathetic, effective, and confidential mental health assistance to colleagues facing stress, burnout, or
-            emotional challenges.</p>
-          <p>Through a blend of theoretical learning, interactive workshops, and role-play simulations, participants
-            will gain the ability to identify early signs of distress, practice active listening, and offer appropriate
-            support or referrals when needed.</p>
-          <p>The Peer Support Program ultimately fosters a culture of care and psychological safety, reinforcing
-            organizational resilience and promoting a workplace where mental well-being is prioritized at every level.
-          </p>
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: EMPLOYEE ASSISTANCE PROGRAMME (EAP) ============ -->
-
+    <!-- ============ SERVICE DETAIL: EAP ============ -->
     <div class="page" id="page-service-eap">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?auto=format&fit=crop&w=1800&q=75')">
@@ -3162,44 +1838,15 @@
             Services</a>
           <p>The Employee Assistance Programme (EAP) by Amaze Synergy Ventures (ASV) is a comprehensive mental health
             support system designed to enhance employee well-being and organizational effectiveness.</p>
-          <p>Through confidential counseling services, psychological wellness talks, and customizable intervention
-            modules, ASV helps organizations address emotional, behavioral, and performance-related challenges within
-            the workforce.</p>
-          <p>By fostering a culture of empathy, resilience, and psychological safety, the EAP enables employees to
-            thrive while strengthening overall productivity and workplace harmony.</p>
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: EMOTIONAL INTELLIGENCE INTENSIVE ============ -->
-
+    <!-- ============ SERVICE DETAIL: EQ INTENSIVE ============ -->
     <div class="page" id="page-service-eq-intensive">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=1800&q=75')">
@@ -3215,42 +1862,15 @@
             Services</a>
           <p>We offer the Emotional Intelligence Intensive, an innovative and comprehensive training initiative that
             enhances emotional intelligence (EQ) through the integration of cutting-edge AI-powered tools.</p>
-          <p>This program enables business leaders to strengthen emotional awareness, regulation, and interpersonal
-            communication while leveraging AI insights to understand their personality traits, stress responses, and
-            cognitive strengths, ultimately driving stronger leadership and workplace harmony.</p>
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: ARTIFICIAL INTELLIGENCE LEADERSHIP MASTERY ============ -->
-
+    <!-- ============ SERVICE DETAIL: AI LEADERSHIP ============ -->
     <div class="page" id="page-service-ai-leadership">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=75')">
@@ -3267,42 +1887,15 @@
           <p>The Artificial Intelligence Leadership Mastery program is one of the most advanced leadership development
             courses designed to cultivate emotionally intelligent, data-driven leaders capable of thriving in the age of
             digital transformation.</p>
-          <p>By integrating AI-powered analytical tools and emotional intelligence principles, this program empowers
-            leaders to enhance strategic decision-making, emotional adaptability, and human-centered leadership
-            effectiveness in a rapidly evolving corporate landscape.</p>
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: PSYCHOLOGICAL FIRST AID (PFA) ============ -->
-
+    <!-- ============ SERVICE DETAIL: PFA ============ -->
     <div class="page" id="page-service-pfa">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1800&q=75')">
@@ -3319,42 +1912,15 @@
           <p>In today's world, Psychological First Aid (PFA) has become an essential skill for both organizations and
             individuals. This accredited, evidence-based program is designed to reduce immediate emotional distress,
             promote adaptive coping, and support recovery following traumatic or high-stress events.</p>
-          <p>Participants gain practical, structured skills to deliver empathetic and effective emotional support to
-            colleagues, clients, or community members during crises, fostering resilience and psychological readiness
-            across teams and organizations.</p>
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
     <!-- ============ SERVICE DETAIL: TEAM BUILDING ============ -->
-
     <div class="page" id="page-service-team-building">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&fit=crop&w=1800&q=75')">
@@ -3371,43 +1937,15 @@
           <p>ASV's Team Building Program is strategically designed to strengthen collaboration, communication, and trust
             within corporate organizations. Through a series of experiential learning activities and guided reflections,
             participants develop stronger interpersonal dynamics and a shared sense of purpose.</p>
-          <p>The program focuses on enhancing team cohesion, leadership synergy, and collective problem-solving,
-            ensuring teams can perform effectively under pressure while maintaining mutual respect and engagement.</p>
-          <p>By promoting emotional intelligence and workplace unity, ASV's team-building initiatives help organizations
-            cultivate high-performing teams that thrive in both productivity and morale.</p>
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ============ SERVICE DETAIL: THERAPY &AMP; COUNSELLING SERVICES ============ -->
-
+    <!-- ============ SERVICE DETAIL: THERAPY ============ -->
     <div class="page" id="page-service-therapy">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1800&q=75')">
@@ -3424,40 +1962,9 @@
           <p>Amaze Synergy Ventures (ASV) offers comprehensive therapy and counselling services facilitated by licensed
             mental health professionals, designed to promote psychological well-being and personal growth across diverse
             needs.</p>
-          <p>Our services include individual therapy for personal challenges and emotional regulation, group therapy for
-            shared healing and peer support, and online therapy to ensure accessibility and confidentiality regardless
-            of location.</p>
-          <p>We also specialize in relationship and premarital counselling, helping couples strengthen communication,
-            manage conflict, and build healthy, resilient partnerships founded on trust and understanding.</p>
-          <p>Through a compassionate, evidence-based approach, ASV provides a safe and confidential environment where
-            individuals and couples can explore their experiences, develop coping strategies, and enhance their overall
-            mental well-being.</p>
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
           </div>
         </div>
       </section>
@@ -3510,29 +2017,6 @@
           </div>
         </div>
       </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
 
     <!-- ============ INSIGHTS PAGE ============ -->
@@ -3581,29 +2065,6 @@
                 <a href="#" class="readmore">Read more →</a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- OPENING HOURS -->
-      <section class="tag-gray">
-        <div class="wrap">
-          <div class="hours-wrap">
-            <div>
-              <p class="eyebrow">Opening Hours</p>
-              <h2>We're here when you need us</h2>
-              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
-                waiting times.</p>
-              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
-                Appointment</a>
-            </div>
-            <ul class="hours-list">
-              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
-              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
-              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
-              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
-              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
-            </ul>
           </div>
         </div>
       </section>
@@ -3851,9 +2312,6 @@
         a.classList.toggle('active', a.getAttribute('data-page') === pageId);
       });
 
-      // Highlight the "About Us" trigger (desktop + mobile) when any of its sub-pages are active,
-      // and swap its label to match the current section (e.g. "Team"), reverting to "About Us"
-      // whenever we're not inside that group (e.g. back on Home).
       var aboutGroupLabels = { about: 'About Us', team: 'Team', gallery: 'Gallery', awards: 'Awards' };
       var inAboutGroup = aboutGroupLabels.hasOwnProperty(pageId);
       var label = inAboutGroup ? aboutGroupLabels[pageId] : 'About Us';
@@ -3872,17 +2330,13 @@
       updateHeaderState();
     }
 
-    // Event delegation: catches clicks on any current or future [data-page] element,
-    // regardless of overlays, so header/nav buttons always route to their own section.
+    // Event delegation
     document.addEventListener('click', function (e) {
       var link = e.target.closest('[data-page]');
       if (!link) return;
       e.preventDefault();
       goToPage(link.getAttribute('data-page'));
 
-      // If the click came from inside the "About Us" dropdown group, close the dropdown
-      // immediately (even though the mouse may still be hovering it) — it will only
-      // reopen the next time the mouse genuinely re-enters the trigger area.
       var navItem = link.closest('#aboutNavItem');
       if (navItem) {
         navItem.classList.add('force-closed');
@@ -3920,13 +2374,41 @@
     mobileClose.addEventListener('click', closeMobile);
     mobileOverlay.addEventListener('click', closeMobile);
 
-    // ---------- Mobile "About Us" submenu toggle ----------
     var mobileAboutGroup = document.getElementById('mobileAboutGroup');
     var mobileAboutTrigger = document.getElementById('mobileAboutTrigger');
     if (mobileAboutTrigger) {
       mobileAboutTrigger.addEventListener('click', function () {
         mobileAboutGroup.classList.toggle('open');
       });
+    }
+
+    // ---------- Hero Slider ----------
+    var slides = document.querySelectorAll('.slide');
+    var slideInners = [document.getElementById('slideInner0'), document.getElementById('slideInner1'), document.getElementById('slideInner2')];
+    var dots = document.querySelectorAll('#heroDots button');
+    var currentSlide = 0;
+    var slideTimer;
+
+    function showSlide(i){
+      slides.forEach(function(s, idx){ s.classList.toggle('active', idx === i); });
+      if(slideInners.length > 0){
+        slideInners.forEach(function(s, idx){ if(s) s.style.display = idx === i ? 'block' : 'none'; });
+      }
+      dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+      currentSlide = i;
+    }
+    function nextSlide(){ showSlide((currentSlide + 1) % slides.length); }
+    function startSlider(){ slideTimer = setInterval(nextSlide, 5500); }
+    function resetSlider(){ clearInterval(slideTimer); startSlider(); }
+
+    if(slides.length > 0) {
+      dots.forEach(function(dot){
+        dot.addEventListener('click', function(){
+          showSlide(parseInt(this.getAttribute('data-slide'), 10));
+          resetSlider();
+        });
+      });
+      startSlider();
     }
 
     // ---------- Contact & Appointment fake-submit ----------
