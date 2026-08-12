@@ -578,9 +578,23 @@
     }
 
     @media (max-width:980px) {
+      .hero-new {
+        min-height: 100vh;
+        /* Ketinggian penuh skrin */
+        min-height: 100svh;
+        /* Sokongan lebih baik untuk browser mobile */
+        display: flex;
+        align-items: center;
+        /* Letak ayat betul-betul di tengah secara menegak */
+        padding-top: 80px;
+        /* Jarak atas untuk elak tindih dengan header */
+        padding-bottom: 60px;
+      }
+
       .hero-new-inner {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 0;
+        width: 100%;
       }
 
       .hero-glass {
