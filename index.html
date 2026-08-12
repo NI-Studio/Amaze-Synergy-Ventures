@@ -31,7 +31,10 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+      scroll-padding-top: 80px;
+    }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -93,7 +96,7 @@
     .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
     .tag-gray { background: var(--bg); }
 
-    /* ===== HEADER — original transparent-on-hero design ===== */
+    /* ===== HEADER ===== */
     header {
       position: fixed;
       top: 0;
@@ -192,7 +195,7 @@
       background: var(--white);
     }
 
-    /* ===== NAV DROPDOWN (About Us) ===== */
+    /* ===== NAV DROPDOWN ===== */
     .nav-item { position: relative; }
     .nav-caret { display: inline-block; transition: transform .25s ease; flex: none; }
     .nav-item:hover .nav-caret,
@@ -290,7 +293,7 @@
     header:not(.solid) .burger { color: var(--white); }
     header.solid .burger { color: var(--ink); }
 
-    /* ===== HERO SLIDER (from inde2.html) ===== */
+    /* ===== HERO SLIDER ===== */
     .hero{ position:relative; height:100vh; min-height:600px; max-height:920px; overflow:hidden; }
     .slide{
       position:absolute; inset:0; opacity:0; visibility:hidden;
@@ -337,7 +340,7 @@
     .hero-scroll-cue .line{ width:1px; height:34px; background:rgba(255,255,255,.6); animation:pulseLine 2.2s ease-in-out infinite; }
     @keyframes pulseLine{ 0%,100%{opacity:.3;} 50%{opacity:1;} }
 
-    /* ===== PAGE BANNER (non-home pages) ===== */
+    /* ===== PAGE BANNER ===== */
     .page-banner {
       position: relative;
       height: 46vh;
@@ -367,7 +370,7 @@
     .page-banner .eyebrow { color: var(--sage-light); }
     .page-banner h1 { color: var(--white); font-size: clamp(28px, 4vw, 42px); }
 
-    /* ===== OUR EXPERTISE (Why Choose Us) ===== */
+    /* ===== OUR EXPERTISE ===== */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -391,7 +394,7 @@
     .why-card h3 { font-size: 16.5px; }
     .why-card p { font-size: 14px; color: var(--gray-600); margin: 0; }
 
-    /* ===== SERVICES (home preview) ===== */
+    /* ===== SERVICES ===== */
     .services-wrap {
       display: grid;
       grid-template-columns: 1.05fr 1fr;
@@ -446,7 +449,6 @@
     .service-list-item h4 { font-size: 16px; margin-bottom: 4px; }
     .service-list-item p { font-size: 14px; color: var(--gray-600); margin: 0; }
 
-    /* Service cards grid (Service page) */
     .service-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -503,7 +505,6 @@
     .service-card .service-more { margin-top: 14px; padding: 9px 18px; font-size: 13.5px; }
     .service-card:hover .service-more { background: var(--sage); color: var(--white); border-color: var(--sage); }
 
-    /* Service detail page */
     .service-detail { max-width: 760px; margin: 0 auto; }
     .service-detail p { color: var(--gray-600); font-size: 15.5px; }
     .service-detail .key-areas {
@@ -515,7 +516,7 @@
     .service-detail .key-areas li::before { content: '✓'; color: var(--sage-dark); font-weight: 700; flex: none; }
     .service-detail-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 
-    /* ===== CLIENTS / TESTIMONIALS ===== */
+    /* ===== CLIENTS ===== */
     .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
     .client-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
     .client-card .quote-mark { font-family: 'Sora', sans-serif; font-size: 38px; color: var(--sage); line-height: 1; margin-bottom: 10px; }
@@ -690,7 +691,7 @@
       padding: 28px 24px; display: flex; flex-direction: column; gap: 22px;
     }
     .mobile-panel.open { transform: translateX(0); }
-    .mobile-panel a { font-size: 16px; font-weight: 600; color: var(--ink); }
+    .mobile-panel a, .mobile-group-trigger { font-size: 16px; font-weight: 600; color: var(--ink); text-align: left; }
     .mobile-overlay { position: fixed; inset: 0; background: rgba(20, 24, 22, .4); z-index: 1100; display: none; }
     .mobile-overlay.open { display: block; }
     .mobile-close { align-self: flex-end; background: none; border: none; font-size: 22px; color: var(--ink); }
@@ -712,10 +713,14 @@
 
     /* ===== RESPONSIVE MEDIA QUERIES ===== */
     @media (max-width:1180px) { .wrap { padding: 0 22px; } }
+    
     @media (max-width:980px) {
       nav.primary-nav { display: none; }
       .nav-cta { display: none; }
       .burger { display: flex; }
+      
+      .hero-scroll-cue { display: none; }
+
       .why-grid { grid-template-columns: repeat(2, 1fr); }
       .services-wrap { grid-template-columns: 1fr; }
       .services-media { height: 300px; order: -1; }
@@ -729,6 +734,7 @@
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
     }
+    
     @media (max-width:760px) {
       .logo img { height: 40px; }
       .logo-mark { width: 36px; height: 36px; }
@@ -737,14 +743,17 @@
       
       /* Hero slider mobile styles */
       .hero { min-height: 520px; }
-      .slide-inner { left: 20px; right: 20px; }
-      .slide-cta { gap: 10px; }
+      .slide-inner { left: 20px; right: 50px; bottom: 12%; } 
+      .slide-cta { gap: 10px; width: 100%; }
       .slide-cta .btn { padding: 11px 20px; font-size: 14px; }
+      
+      .hero-dots { right: 20px; }
       
       .page-banner { min-height: 260px; }
       section { padding: 72px 0; }
       .section-head { max-width: 100%; }
     }
+    
     @media (max-width:600px) {
       .wrap { padding: 0 18px; }
       section { padding: 56px 0; }
@@ -758,10 +767,8 @@
       form.form-card { padding: 24px 20px; }
       .mobile-panel { width: 88%; padding: 24px 20px; }
       
-      /* Hero slider mobile tweaks */
-      .slide-inner { bottom: 16%; }
-      .hero-scroll-cue { display: none; }
-      .hero-dots { right: 18px; }
+      .slide-inner { left: 18px; right: 46px; }
+      .hero-dots { right: 14px; }
       
       .team-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -769,11 +776,15 @@
       .awards-grid { grid-template-columns: 1fr; }
       .award-card { flex-direction: column; text-align: center; align-items: center; }
     }
+    
+    @media (max-width:460px) {
+      .slide-cta { flex-direction: column; align-items: stretch; }
+      .slide-cta .btn { width: 100%; justify-content: center; }
+    }
+
     @media (max-width:420px) {
       .btn { padding: 12px 20px; font-size: 14px; }
       .nav-cta { padding: 9px 16px; font-size: 13.5px !important; }
-      
-      /* Hero slider text mobile */
       .slide-inner h1 { font-size: 26px; }
     }
   </style>
@@ -781,7 +792,7 @@
 
 <body>
 
-  <!-- ============ HEADER (Dari index.html + Design inde2.html) ============ -->
+  <!-- ============ HEADER ============ -->
   <header id="siteHeader">
     <div class="wrap nav-row">
       <a href="#" class="logo" data-page="home">
@@ -796,11 +807,12 @@
         </span>
       </a>
 
-      <!-- Fungsi Menu Tengah Dikekalkan dari index.html -->
       <nav class="primary-nav" id="primaryNav">
         <a href="#" data-page="home" class="active">Home</a>
+        
+        <!-- About Us Dropdown Trigger -->
         <div class="nav-item" id="aboutNavItem">
-          <a href="#" data-page="about" class="nav-trigger">
+          <a href="#" class="nav-trigger">
             <span class="nav-trigger-label">About Us</span>
             <svg class="nav-caret" width="10" height="10" viewBox="0 0 24 24" fill="none">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
@@ -816,6 +828,7 @@
             </div>
           </div>
         </div>
+        
         <a href="#" data-page="service">Our Services</a>
         <a href="#" data-page="insights">Insights</a>
         <a href="#" data-page="resources">Resources</a>
@@ -834,6 +847,7 @@
   <div class="mobile-panel" id="mobilePanel">
     <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
     <a href="#" data-page="home">Home</a>
+    
     <div class="mobile-group" id="mobileAboutGroup">
       <button type="button" class="mobile-group-trigger" id="mobileAboutTrigger">
         <span class="mobile-group-label">About Us</span>
@@ -849,6 +863,7 @@
         <a href="#" data-page="awards">Awards</a>
       </div>
     </div>
+    
     <a href="#" data-page="service">Our Services</a>
     <a href="#" data-page="insights">Insights</a>
     <a href="#" data-page="resources">Resources</a>
@@ -859,7 +874,7 @@
   <main>
     <div class="page active" id="page-home">
 
-      <!-- ============ HERO SLIDER (Dari inde2.html, Text Dari index.html) ============ -->
+      <!-- ============ HERO SLIDER ============ -->
       <section class="hero" style="padding:0;">
         <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1800&q=75')"></div>
         <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=1800&q=75')"></div>
@@ -870,7 +885,7 @@
           <h1>Empowering Organizations Through Mental Health Excellence</h1>
           <p>We help organizations build a culture that values mental well-being, strengthens resilience, and supports people to perform at their best.</p>
           <div class="slide-cta">
-            <a href="#" class="btn btn-primary" data-page="service">Explore Our Services</a>
+            <a href="#explore-section" class="btn btn-primary">Explore Website</a>
             <a href="#" class="btn btn-ghost" data-page="about">Learn More</a>
           </div>
         </div>
@@ -902,11 +917,9 @@
         </div>
         <div class="hero-scroll-cue"><span>Scroll</span><span class="line"></span></div>
       </section>
-
-      <!-- ============ BAKI KANDUNGAN HALAMAN (Dari index.html dikekalkan sepenuhnya) ============ -->
       
       <!-- OUR EXPERTISE -->
-      <section>
+      <section id="explore-section">
         <div class="wrap">
           <div class="section-head center">
             <p class="eyebrow">Why Choose Us</p>
@@ -2031,6 +2044,12 @@
 
       <section>
         <div class="wrap">
+          <!-- Tambahan Section Head (Gambar rujukan) -->
+          <div class="section-head center">
+            <p class="eyebrow">Explore</p>
+            <h2>Tools and guides to support your organisation</h2>
+            <p style="color:var(--gray-600); font-size:15.5px;">A growing collection of practical resources for leaders, HR teams, and employees who want to build a mentally healthier workplace.</p>
+          </div>
           <div class="blog-grid">
             <div class="blog-card">
               <div class="thumb"><img
@@ -2304,6 +2323,7 @@
     var pages = document.querySelectorAll('.page');
 
     function goToPage(pageId) {
+      if(!pageId) return;
       pages.forEach(function (p) { p.classList.remove('active'); });
       var target = document.getElementById('page-' + pageId);
       if (target) { target.classList.add('active'); }
@@ -2332,6 +2352,15 @@
 
     // Event delegation
     document.addEventListener('click', function (e) {
+      // Izinkan pautan hash (#) scroll normal (untuk "Explore Website" butang Slaid 1)
+      var anchor = e.target.closest('a');
+      if (anchor) {
+        var href = anchor.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          return;
+        }
+      }
+      
       var link = e.target.closest('[data-page]');
       if (!link) return;
       e.preventDefault();
