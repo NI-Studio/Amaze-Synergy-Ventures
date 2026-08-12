@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amaze Synergy Ventures - No Health without Mental Health</title>
+<link rel="icon" type="image/png" href="logo.png"> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --bg:#f5f7f6;
+    --gray-100:#eceeed;
+    --gray-200:#dfe3e1;
+    --gray-300:#c6cdc9;
+    --gray-500:#8b948e;
+    --gray-600:#636b66;
+    --gray-700:#464e49;
+    --ink:#262b28;
+    --sage:#7c5cb8;
+    --sage-dark:#54397e;
+    --sage-light:#ece6f6;
+    --shadow: 0 10px 30px rgba(38,43,40,0.08);
+    --radius: 14px;
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Sora', sans-serif;
+    margin:0 0 .5em 0;
+    line-height:1.2;
+    font-weight:600;
+  }
+  p{margin:0 0 1em 0;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--sage);
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    border:1px solid transparent;
+    transition:all .2s ease;
+  }
+  .btn-primary{ background:var(--sage); color:var(--white); }
+  .btn-primary:hover{ background:var(--sage-dark); }
+  .btn-ghost{ background:transparent; color:var(--white); border-color:rgba(255,255,255,.55); }
+  .btn-ghost:hover{ background:rgba(255,255,255,.15); }
+  .btn-outline{ background:transparent; color:var(--ink); border-color:var(--gray-300); }
+  .btn-outline:hover{ border-color:var(--sage); color:var(--sage-dark); }
+  .page{ display:none; }
+  .page.active{ display:block; }
+  section{ padding:88px 0; }
+  .section-head{ max-width:600px; margin-bottom:48px; }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .tag-gray{ background:var(--bg); }
+
+  /* ===== HEADER — liquid glass, purple hue ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background:linear-gradient(120deg, rgba(124,92,184,.16), rgba(255,255,255,.30) 55%, rgba(124,92,184,.14));
+    backdrop-filter:blur(18px) saturate(180%);
+    -webkit-backdrop-filter:blur(18px) saturate(180%);
+    border-bottom:1px solid rgba(255,255,255,.35);
+    box-shadow:0 8px 32px rgba(84,57,126,.10), inset 0 1px 0 rgba(255,255,255,.5);
+    transition:background .35s ease, box-shadow .35s ease, padding .3s ease, backdrop-filter .35s ease;
+    padding:20px 0;
+  }
+  header.solid{
+    background:linear-gradient(120deg, rgba(124,92,184,.20), rgba(255,255,255,.62) 55%, rgba(124,92,184,.16));
+    backdrop-filter:blur(22px) saturate(200%);
+    -webkit-backdrop-filter:blur(22px) saturate(200%);
+    box-shadow:0 8px 32px rgba(84,57,126,.14), inset 0 1px 0 rgba(255,255,255,.6);
+    padding:13px 0;
+  }
+  .nav-row{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px; }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:'Sora',sans-serif; font-weight:700; font-size:21px; flex:none; justify-self:start; color:var(--ink); }
+  .logo img{ height:48px; width:auto; }
+  .logo-fallback{ display:flex; align-items:center; gap:10px; }
+  .logo-mark{ width:44px; height:44px; flex:none; }
+  .logo, .logo-fallback{ color:var(--ink); }
+
+  nav.primary-nav{
+    display:flex; align-items:center; justify-content:center; gap:8px; justify-self:center; grid-column:2;
+    border-radius:999px; padding:6px; background:rgba(255,255,255,.35); border:1px solid rgba(255,255,255,.5);
+    backdrop-filter:blur(6px);
+  }
+  nav.primary-nav a{
+    font-size:14.5px; font-weight:500; position:relative; padding:9px 18px; border-radius:999px;
+    color:var(--gray-700); white-space:nowrap; transition:background .2s ease, color .2s ease;
+  }
+  nav.primary-nav a.active,
+  nav.primary-nav a:hover{ color:var(--sage-dark); background:rgba(255,255,255,.75); }
+  nav.primary-nav a.active::after{ content:none; }
+
+  /* ===== NAV DROPDOWN (About Us) ===== */
+  .nav-item{ position:relative; }
+  .nav-item > .nav-trigger{ display:inline-flex; align-items:center; gap:5px; }
+  .nav-caret{ display:inline-block; transition:transform .25s ease; flex:none; }
+  .nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret{ transform:rotate(180deg); }
+  .nav-dropdown{
+    /* starts flush against the trigger (no gap) with transparent top padding acting as a
+       hoverable bridge, so moving the mouse from the trigger into the menu never breaks :hover */
+    position:absolute; top:100%; left:50%; transform:translateX(-50%);
+    padding-top:14px; min-width:190px; opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .2s ease, visibility .2s ease; z-index:1001;
+  }
+  .nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown{
+    opacity:1; visibility:visible; pointer-events:auto;
+  }
+  .nav-item.force-closed .nav-dropdown{
+    opacity:0 !important; visibility:hidden !important; pointer-events:none !important;
+  }
+  .nav-dropdown-inner{
+    background:var(--white); border-radius:14px; border:1px solid var(--gray-200);
+    box-shadow:var(--shadow); padding:8px; transform:translateY(-6px); transition:transform .2s ease;
+  }
+  .nav-item:hover .nav-dropdown-inner, .nav-item:focus-within .nav-dropdown-inner{ transform:translateY(0); }
+  nav.primary-nav .nav-dropdown a{
+    display:block; padding:10px 14px; border-radius:9px; font-size:14px; font-weight:500;
+    color:var(--gray-700); white-space:nowrap; background:none;
+  }
+  nav.primary-nav .nav-dropdown a:hover, nav.primary-nav .nav-dropdown a.active{ background:var(--sage-light); color:var(--sage-dark); }
+  .nav-right-wrap{ display:flex; align-items:center; gap:12px; flex:none; justify-self:end; grid-column:3; }
+  .nav-cta{
+    background:var(--sage); color:var(--white) !important; padding:11px 22px; border-radius:999px;
+    font-weight:600 !important; font-size:14.5px !important; white-space:nowrap; box-shadow:0 4px 14px rgba(84,57,126,.28);
+  }
+  .nav-cta:hover{ background:var(--sage-dark); color:var(--white) !important; }
+  .burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px; color:var(--ink); }
+  .burger span{ width:24px; height:2px; background:currentColor; display:block; }
+
+  /* ===== HERO — clean white, subtle purple wave, single panel ===== */
+  .hero-new{
+    position:relative; overflow:hidden; background:var(--white);
+    padding:168px 0 100px;
+  }
+  .hero-new::before{
+    /* soft purple gradient glow, top-left */
+    content:''; position:absolute; top:-220px; left:-160px; width:620px; height:620px; border-radius:50%;
+    background:radial-gradient(circle, rgba(124,92,184,.20) 0%, rgba(124,92,184,0) 70%);
+    z-index:0; pointer-events:none;
+  }
+  .hero-new::after{
+    /* soft purple gradient glow, right side */
+    content:''; position:absolute; top:10%; right:-220px; width:560px; height:560px; border-radius:50%;
+    background:radial-gradient(circle, rgba(124,92,184,.16) 0%, rgba(124,92,184,0) 70%);
+    z-index:0; pointer-events:none;
+  }
+  .hero-wave{ position:absolute; left:0; right:0; bottom:-2px; width:100%; line-height:0; z-index:0; pointer-events:none; }
+  .hero-wave svg{ width:100%; height:auto; display:block; }
+  .hero-new-inner{
+    position:relative; z-index:1; display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
+  }
+  .hero-text{ max-width:600px; }
+  .hero-text .eyebrow{ color:var(--sage); }
+  .hero-text .tagline{ font-style:italic; font-weight:600; color:var(--sage-dark); font-size:15px; margin:0 0 .4em; }
+  .hero-text h1{ font-size:clamp(32px,4.4vw,52px); color:var(--ink); margin:.35em 0 .45em; }
+  .hero-text p.lead{ font-size:17px; color:var(--gray-600); max-width:520px; }
+  .hero-cta{ display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; }
+  .btn-outline-purple{ background:rgba(124,92,184,.06); color:var(--sage-dark); border-color:rgba(124,92,184,.4); }
+  .btn-outline-purple:hover{ background:rgba(124,92,184,.14); border-color:var(--sage); }
+
+  /* abstract glassy visual */
+  .hero-glass{ position:relative; height:420px; }
+  .hero-glass .blob{
+    position:absolute; border-radius:32px;
+    background:linear-gradient(135deg, rgba(255,255,255,.55), rgba(124,92,184,.18));
+    border:1px solid rgba(255,255,255,.6);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 20px 50px rgba(84,57,126,.14), inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  .hero-glass .blob-1{ width:78%; height:78%; top:6%; left:8%; border-radius:40px; }
+  .hero-glass .blob-2{ width:46%; height:46%; bottom:0; right:0; border-radius:50%; background:linear-gradient(135deg, rgba(124,92,184,.30), rgba(255,255,255,.4)); }
+  .hero-glass .blob-3{ width:30%; height:30%; top:0; right:12%; border-radius:24px; background:linear-gradient(135deg, rgba(255,255,255,.6), rgba(124,92,184,.12)); }
+  .hero-glass .glass-building{ position:absolute; top:12%; left:16%; width:34%; height:auto; opacity:.9; }
+  .hero-glass .people-row{
+    position:absolute; left:12%; bottom:14%; display:flex; align-items:flex-end; gap:10px; z-index:2;
+  }
+  .hero-glass .person-chip{
+    width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,.75); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    box-shadow:0 10px 24px rgba(84,57,126,.16), inset 0 1px 0 rgba(255,255,255,.7);
+    border:1px solid rgba(255,255,255,.7);
+  }
+  .hero-glass .person-chip-lg{ width:64px; height:64px; }
+
+  @media (max-width:980px){
+    .hero-new-inner{ grid-template-columns:1fr; }
+    .hero-glass{ height:300px; order:-1; }
+  }
+  @media (max-width:600px){
+    .hero-new{ padding:132px 0 72px; }
+  }
+
+  /* ===== PAGE BANNER (non-home pages) ===== */
+  .page-banner{
+    position:relative; height:46vh; min-height:320px; max-height:440px;
+    background-size:cover; background-position:center;
+    display:flex; align-items:flex-end;
+  }
+  .page-banner::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,24,22,.45), rgba(20,24,22,.6)); }
+  .page-banner .banner-inner{ position:relative; z-index:2; color:var(--white); padding-bottom:56px; width:100%; }
+  .page-banner .eyebrow{ color:var(--sage-light); }
+  .page-banner h1{ color:var(--white); font-size:clamp(28px,4vw,42px); }
+
+  /* ===== OUR EXPERTISE (Why Choose Us) ===== */
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .why-card{ background:var(--white); border-radius:var(--radius); overflow:hidden; border:1px solid var(--gray-200); box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease; }
+  .why-card:hover{ transform:translateY(-4px); }
+  .why-card .why-img{ height:150px; overflow:hidden; }
+  .why-card .why-img img{ width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+  .why-card:hover .why-img img{ transform:scale(1.06); }
+  .why-card .why-body{ padding:22px 22px 26px; }
+  .why-card h3{ font-size:16.5px; }
+  .why-card p{ font-size:14px; color:var(--gray-600); margin:0; }
+
+  /* ===== SERVICES (home preview) ===== */
+  .services-wrap{ display:grid; grid-template-columns:1.05fr 1fr; gap:56px; align-items:center; }
+  .services-media{ border-radius:20px; overflow:hidden; height:460px; }
+  .services-media img{ width:100%; height:100%; object-fit:cover; }
+  .service-list-item{
+    display:flex; gap:16px; padding:18px 14px; border-bottom:1px solid var(--gray-200);
+    border-radius:14px; margin:0 -14px; transition:background .25s ease, transform .25s ease, border-color .25s ease;
+    position:relative;
+  }
+  .service-list-item:first-child{ padding-top:14px; }
+  .service-list-item:hover{ background:var(--sage-light); transform:translateX(4px); border-bottom-color:transparent; }
+  .service-list-item .ic{
+    width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, var(--sage-light), #fff); color:var(--sage-dark);
+    display:flex; align-items:center; justify-content:center; flex:none;
+    box-shadow:0 6px 14px rgba(124,92,184,.16), inset 0 1px 0 rgba(255,255,255,.6);
+    transition:transform .25s ease, background .25s ease;
+  }
+  .service-list-item:hover .ic{ background:var(--sage); color:var(--white); transform:scale(1.08) rotate(-4deg); }
+  .service-list-item h4{ font-size:16px; margin-bottom:4px; }
+  .service-list-item p{ font-size:14px; color:var(--gray-600); margin:0; }
+
+  /* Service cards grid (Service page) */
+  .service-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .service-card{
+    position:relative; border-radius:var(--radius); overflow:hidden; background:var(--white);
+    border:1px solid var(--gray-200); box-shadow:var(--shadow);
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .service-card::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:4px; z-index:3;
+    background:linear-gradient(90deg, var(--sage), var(--sage-dark));
+    transform:scaleX(0); transform-origin:left; transition:transform .35s ease;
+  }
+  .service-card:hover{ transform:translateY(-7px); box-shadow:0 22px 44px rgba(84,57,126,.20); border-color:transparent; }
+  .service-card:hover::before{ transform:scaleX(1); }
+  .service-card .thumb{ height:170px; overflow:hidden; position:relative; }
+  .service-card .thumb img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .service-card:hover .thumb img{ transform:scale(1.08); }
+  .service-card .thumb::after{
+    content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(38,43,40,0) 55%, rgba(38,43,40,.35));
+  }
+  .service-card .num{
+    position:absolute; top:14px; left:14px; z-index:2; width:36px; height:36px; border-radius:50%;
+    background:rgba(255,255,255,.92); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center; font-family:'Sora',sans-serif; font-weight:700;
+    font-size:13.5px; color:var(--sage-dark); box-shadow:0 6px 16px rgba(38,43,40,.18);
+  }
+  .service-card .body{ padding:22px; }
+  .service-card h3{ font-size:17px; }
+  .service-card p{ font-size:14.5px; color:var(--gray-600); }
+  .service-card .service-more{ margin-top:14px; padding:9px 18px; font-size:13.5px; }
+  .service-card:hover .service-more{ background:var(--sage); color:var(--white); border-color:var(--sage); }
+
+  /* Service detail page */
+  .service-detail{ max-width:760px; margin:0 auto; }
+  .service-detail p{ color:var(--gray-600); font-size:15.5px; }
+  .service-detail .key-areas{ background:var(--bg); border-radius:var(--radius); padding:28px 30px; margin:28px 0; }
+  .service-detail .key-areas h4{ font-size:15.5px; margin-bottom:14px; }
+  .service-detail .key-areas ul{ display:flex; flex-direction:column; gap:10px; }
+  .service-detail .key-areas li{ display:flex; gap:10px; color:var(--gray-600); font-size:14.5px; }
+  .service-detail .key-areas li::before{ content:'✓'; color:var(--sage-dark); font-weight:700; flex:none; }
+  .service-detail-cta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+
+  /* ===== CLIENTS / TESTIMONIALS ===== */
+  .clients-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .client-card{ background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); padding:28px; }
+  .client-card .quote-mark{ font-family:'Sora',sans-serif; font-size:38px; color:var(--sage); line-height:1; margin-bottom:10px; }
+  .client-card p.quote{ color:var(--gray-700); font-size:15px; }
+  .client-row{ display:flex; align-items:center; gap:12px; margin-top:18px; }
+  .client-row img{ width:44px; height:44px; border-radius:50%; object-fit:cover; }
+  .client-row .name{ font-weight:600; font-size:14.5px; }
+  .client-row .role{ font-size:12.5px; color:var(--gray-500); }
+
+  /* ===== HOURS ===== */
+  .hours-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; background:var(--sage-dark); color:var(--white); border-radius:24px; padding:56px; }
+  .hours-wrap .eyebrow{ color:var(--sage-light); }
+  .hours-wrap h2{ color:var(--white); }
+  .hours-wrap p.lead{ color:rgba(255,255,255,.82); }
+  .hours-list{ display:flex; flex-direction:column; gap:0; }
+  .hours-list li{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.16); font-size:15px; }
+  .hours-list li:last-child{ border-bottom:none; }
+  .hours-list .day{ color:rgba(255,255,255,.9); font-weight:500; }
+  .hours-list .time{ color:var(--white); font-weight:600; }
+
+  /* ===== FOOTER ===== */
+  footer{ background:var(--ink); color:rgba(255,255,255,.75); padding:64px 0 28px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; }
+  .footer-brand .logo{ color:var(--white); margin-bottom:14px; }
+  .footer-brand p{ font-size:14px; color:rgba(255,255,255,.6); max-width:280px; }
+  footer h4{ color:var(--white); font-size:14.5px; margin-bottom:16px; }
+  footer ul li{ margin-bottom:11px; font-size:14px; }
+  footer ul li a:hover{ color:var(--white); }
+  .footer-social{ display:flex; gap:12px; margin-top:16px; }
+  .footer-social a{
+    width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,.25);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .footer-social a:hover{ background:var(--sage); border-color:var(--sage); }
+  .footer-bottom{
+    margin-top:52px; padding-top:24px; border-top:1px solid rgba(255,255,255,.14);
+    display:flex; justify-content:space-between; font-size:13px; color:rgba(255,255,255,.5); flex-wrap:wrap; gap:10px;
+  }
+
+  /* ===== GENERIC PAGE BLOCKS (About / Contact / Appointment / Insights / Resources) ===== */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .two-col img{ border-radius:20px; width:100%; height:440px; object-fit:cover; }
+  .values-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:10px; }
+  .value-card{ padding:26px; border-radius:var(--radius); background:var(--bg); }
+  .value-card h4{ font-size:16px; }
+  .value-card p{ font-size:14px; color:var(--gray-600); margin:0; }
+
+  /* ===== TEAM ===== */
+  .team-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; }
+  .team-card{
+    text-align:center; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius);
+    overflow:hidden; transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .team-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .team-card .photo{ height:220px; overflow:hidden; }
+  .team-card .photo img{ width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+  .team-card:hover .photo img{ transform:scale(1.06); }
+  .team-card .info{ padding:20px 18px 24px; }
+  .team-card h4{ font-size:16px; margin-bottom:3px; }
+  .team-card .role{ font-size:13px; font-weight:600; color:var(--sage-dark); text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px; }
+  .team-card p{ font-size:13.5px; color:var(--gray-600); margin:0; }
+  .team-card .socials{ display:flex; gap:8px; justify-content:center; margin-top:14px; }
+  .team-card .socials a{
+    width:30px; height:30px; border-radius:50%; border:1px solid var(--gray-200); display:flex;
+    align-items:center; justify-content:center; color:var(--gray-600); transition:all .2s ease;
+  }
+  .team-card .socials a:hover{ background:var(--sage); border-color:var(--sage); color:var(--white); }
+
+  /* ===== GALLERY ===== */
+  .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:190px; gap:18px; }
+  .gallery-item{ position:relative; border-radius:var(--radius); overflow:hidden; }
+  .gallery-item img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .gallery-item:hover img{ transform:scale(1.08); }
+  .gallery-item::after{
+    content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(84,57,126,0) 55%, rgba(38,20,58,.55));
+    opacity:0; transition:opacity .3s ease;
+  }
+  .gallery-item .cap{
+    position:absolute; left:16px; right:16px; bottom:14px; color:var(--white); font-size:13.5px; font-weight:600;
+    opacity:0; transform:translateY(8px); transition:opacity .3s ease, transform .3s ease; z-index:2;
+  }
+  .gallery-item:hover::after, .gallery-item:hover .cap{ opacity:1; transform:translateY(0); }
+  .gallery-item.tall{ grid-row:span 2; }
+  .gallery-item.wide{ grid-column:span 2; }
+
+  /* ===== AWARDS — elegant certificate/banner style ===== */
+  .awards-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .award-card{
+    position:relative; overflow:hidden; display:flex; align-items:center; gap:22px;
+    background:linear-gradient(135deg,#ffffff 0%, var(--bg) 100%);
+    border:1px solid var(--gray-200); border-radius:18px; padding:26px 28px;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .award-card::before{
+    /* soft premium glow, top-right */
+    content:''; position:absolute; top:-46%; right:-18%; width:170px; height:170px; border-radius:50%;
+    background:radial-gradient(circle, rgba(124,92,184,.14) 0%, rgba(124,92,184,0) 70%);
+    pointer-events:none; transition:opacity .35s ease; opacity:.7;
+  }
+  .award-card:hover{
+    transform:translateY(-5px); border-color:rgba(124,92,184,.35);
+    box-shadow:0 20px 44px rgba(84,57,126,.16);
+  }
+  .award-card:hover::before{ opacity:1; }
+  .award-card .emblem{
+    position:relative; flex:none; width:74px; height:74px; border-radius:50%;
+    background:linear-gradient(135deg, var(--sage-light), #ffffff);
+    border:1px solid rgba(124,92,184,.3); color:var(--sage-dark);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.7), 0 8px 18px rgba(124,92,184,.16);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .award-card:hover .emblem{ transform:scale(1.07); box-shadow:inset 0 1px 0 rgba(255,255,255,.8), 0 10px 22px rgba(124,92,184,.24); }
+  .award-card .content{ position:relative; min-width:0; }
+  .award-card .year{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--sage); }
+  .award-card h4{ font-size:16.5px; margin:3px 0 6px; }
+  .award-card p{ font-size:14px; color:var(--gray-600); margin:0; }
+
+  @media (max-width:980px){
+    .team-grid{ grid-template-columns:repeat(2,1fr); }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:160px; }
+  }
+  @media (max-width:600px){
+    .team-grid{ grid-template-columns:1fr 1fr; }
+    .gallery-grid{ grid-template-columns:1fr 1fr; }
+    .gallery-item.wide{ grid-column:span 2; }
+    .awards-grid{ grid-template-columns:1fr; }
+    .award-card{ flex-direction:column; text-align:center; align-items:center; }
+  }
+
+  form.form-card{ background:var(--bg); border-radius:20px; padding:36px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:13.5px; font-weight:600; margin-bottom:7px; color:var(--gray-700); }
+  .field input, .field select, .field textarea{
+    width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--gray-300);
+    font-family:inherit; font-size:14.5px; background:var(--white); color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:2px solid var(--sage); outline-offset:1px; border-color:var(--sage); }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .form-note{ font-size:13px; color:var(--gray-500); margin-top:10px; }
+  .form-success{ display:none; background:var(--sage-light); color:var(--sage-dark); padding:16px 18px; border-radius:12px; font-size:14.5px; margin-bottom:18px; font-weight:500; }
+  .form-success.show{ display:block; }
+
+  .contact-info-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:40px; }
+  .info-card{ padding:24px; border-radius:var(--radius); border:1px solid var(--gray-200); }
+  .info-card .ic{ width:38px; height:38px; border-radius:10px; background:var(--sage-light); color:var(--sage-dark); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .info-card h4{ font-size:15px; }
+  .info-card p{ font-size:14px; color:var(--gray-600); margin:0; }
+
+  /* Blog */
+  .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .blog-card{ border-radius:var(--radius); overflow:hidden; border:1px solid var(--gray-200); }
+  .blog-card .thumb{ height:190px; overflow:hidden; }
+  .blog-card .thumb img{ width:100%; height:100%; object-fit:cover; }
+  .blog-card .body{ padding:22px; }
+  .blog-card .cat{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--sage); }
+  .blog-card h3{ font-size:16.5px; margin:8px 0 10px; }
+  .blog-card p{ font-size:14px; color:var(--gray-600); }
+  .blog-card .readmore{ font-size:13.5px; font-weight:600; color:var(--sage-dark); }
+
+  /* Appointment layout */
+  .appt-wrap{ display:grid; grid-template-columns:1fr 1.15fr; gap:48px; }
+  .appt-side{ align-self:start; }
+  .appt-side .info-card{ margin-bottom:16px; }
+
+  /* mobile nav panel */
+  .mobile-panel{
+    position:fixed; inset:0 0 0 auto; width:min(320px,84%); background:var(--white); z-index:1200;
+    box-shadow:-10px 0 40px rgba(0,0,0,.15);
+    transform:translateX(100%); transition:transform .3s ease;
+    padding:28px 24px; display:flex; flex-direction:column; gap:22px;
+  }
+  .mobile-panel.open{ transform:translateX(0); }
+  .mobile-panel a{ font-size:16px; font-weight:600; color:var(--ink); }
+  .mobile-overlay{ position:fixed; inset:0; background:rgba(20,24,22,.4); z-index:1100; display:none; }
+  .mobile-overlay.open{ display:block; }
+  .mobile-close{ align-self:flex-end; background:none; border:none; font-size:22px; color:var(--ink); }
+
+  /* mobile submenu (About Us group) */
+  .mobile-group{ display:flex; flex-direction:column; gap:22px; }
+  .mobile-group-trigger{
+    display:flex; align-items:center; justify-content:space-between; width:100%;
+    background:none; border:none; padding:0; font-family:inherit; font-size:16px; font-weight:600; color:var(--ink);
+  }
+  .mobile-group-trigger .nav-caret{ transition:transform .25s ease; color:var(--gray-500); }
+  .mobile-group.open .mobile-group-trigger .nav-caret{ transform:rotate(180deg); }
+  .mobile-submenu{
+    display:flex; flex-direction:column; gap:16px; max-height:0; overflow:hidden;
+    transition:max-height .3s ease, margin-top .3s ease; margin-top:0; padding-left:14px; border-left:2px solid var(--gray-200);
+  }
+  .mobile-group.open .mobile-submenu{ max-height:260px; margin-top:16px; }
+  .mobile-submenu a{ font-size:14.5px; font-weight:500; color:var(--gray-600); }
+  .mobile-submenu a:hover, .mobile-submenu a.active{ color:var(--sage-dark); }
+
+  @media (max-width:1180px){
+    .wrap{ padding:0 22px; }
+  }
+  @media (max-width:980px){
+    nav.primary-nav{ display:none; }
+    .nav-cta{ display:none; }
+    .burger{ display:flex; }
+    .why-grid{ grid-template-columns:repeat(2,1fr); }
+    .services-wrap{ grid-template-columns:1fr; }
+    .services-media{ height:300px; order:-1; }
+    .clients-grid, .service-grid, .blog-grid, .values-grid, .contact-info-grid{ grid-template-columns:repeat(2,1fr); }
+    .hours-wrap{ grid-template-columns:1fr; padding:40px 28px; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    .two-col{ grid-template-columns:1fr; }
+    .two-col img{ height:300px; order:-1; }
+    .appt-wrap{ grid-template-columns:1fr; }
+    .form-row{ grid-template-columns:1fr; }
+  }
+  @media (max-width:760px){
+    .logo img{ height:40px; }
+    .logo-mark{ width:36px; height:36px; }
+    header{ padding:16px 0; }
+    header.solid{ padding:12px 0; }
+    .hero-new{ padding-top:148px; }
+    .hero-cta{ gap:10px; }
+    .hero-cta .btn{ padding:11px 20px; font-size:14px; }
+    .page-banner{ min-height:260px; }
+    section{ padding:72px 0; }
+    .section-head{ max-width:100%; }
+  }
+  @media (max-width:600px){
+    .wrap{ padding:0 18px; }
+    section{ padding:56px 0; }
+    .why-grid, .clients-grid, .service-grid, .blog-grid, .values-grid, .contact-info-grid{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr; gap:32px; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; gap:6px; }
+    .why-card .why-img{ height:170px; }
+    .services-media{ height:220px; }
+    .two-col img{ height:220px; }
+    .hours-wrap{ padding:30px 20px; border-radius:18px; }
+    form.form-card{ padding:24px 20px; }
+    .mobile-panel{ width:88%; padding:24px 20px; }
+  }
+  @media (max-width:420px){
+    .btn{ padding:12px 20px; font-size:14px; }
+    .hero-text h1{ font-size:26px; }
+    .nav-cta{ padding:9px 16px; font-size:13.5px !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="wrap nav-row">
+    <a href="#" class="logo" data-page="home">
+      <img src="logo.png" alt="Amaze Synergy Ventures logo" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+      <span id="logoFallback" class="logo-fallback" style="display:none">
+        <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.4" opacity="0.35"/>
+          <path d="M20 6c5 5 5 9 0 14s-5 9 0 14c5-5 5-9 0-14s-5-9 0-14z" fill="#7c5cb8"/>
+        </svg>
+        Amaze Synergy Ventures
+      </span>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#" data-page="home" class="active">Home</a>
+      <div class="nav-item" id="aboutNavItem">
+        <a href="#" data-page="about" class="nav-trigger">
+          <span class="nav-trigger-label">About Us</span>
+          <svg class="nav-caret" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-inner">
+            <a href="#" data-page="about">About Us</a>
+            <a href="#" data-page="team">Team</a>
+            <a href="#" data-page="gallery">Gallery</a>
+            <a href="#" data-page="awards">Awards</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" data-page="service">Our Services</a>
+      <a href="#" data-page="insights">Insights</a>
+      <a href="#" data-page="resources">Resources</a>
+    </nav>
+
+    <div class="nav-right-wrap">
+      <a href="#" data-page="contact" class="nav-cta">Contact Us</a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="#" data-page="home">Home</a>
+  <div class="mobile-group" id="mobileAboutGroup">
+    <button type="button" class="mobile-group-trigger" id="mobileAboutTrigger">
+      <span class="mobile-group-label">About Us</span>
+      <svg class="nav-caret" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a href="#" data-page="about">About Us</a>
+      <a href="#" data-page="team">Team</a>
+      <a href="#" data-page="gallery">Gallery</a>
+      <a href="#" data-page="awards">Awards</a>
+    </div>
+  </div>
+  <a href="#" data-page="service">Our Services</a>
+  <a href="#" data-page="insights">Insights</a>
+  <a href="#" data-page="resources">Resources</a>
+  <a href="#" data-page="contact">Contact Us</a>
+</div>
+
+<!-- ============ HOME PAGE ============ -->
+<main>
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero-new">
+    <div class="wrap hero-new-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Organizational Mental Health</p>
+        <h1>Empowering Organizations Through Mental Health Excellence</h1>
+        <p class="lead">We help organizations build a culture that values mental well-being, strengthens resilience, and supports people to perform at their best. Our approach focuses on creating healthy workplaces where employees and businesses grow together.</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary" data-page="service">Explore Our Services</a>
+          <a href="#" class="btn btn-outline-purple" data-page="about">Learn More</a>
+        </div>
+      </div>
+
+      <div class="hero-glass" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-2"></div>
+
+        <!-- abstract workplace: building silhouette on the main glass panel -->
+        <svg class="glass-building" width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <rect x="18" y="30" width="34" height="70" rx="4" fill="rgba(124,92,184,.16)"/>
+          <rect x="58" y="14" width="40" height="86" rx="4" fill="rgba(124,92,184,.22)"/>
+          <rect x="26" y="42" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.4)"/>
+          <rect x="26" y="58" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.4)"/>
+          <rect x="26" y="74" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.4)"/>
+          <rect x="66" y="28" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)"/>
+          <rect x="82" y="28" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)"/>
+          <rect x="66" y="46" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)"/>
+          <rect x="82" y="46" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)"/>
+          <rect x="66" y="64" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)"/>
+          <rect x="82" y="64" width="8" height="8" rx="1.5" fill="rgba(84,57,126,.5)"/>
+        </svg>
+
+        <!-- abstract people: three glass chips with figure silhouettes -->
+        <div class="people-row">
+          <div class="person-chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6" fill="rgba(84,57,126,.55)"/><path d="M4 20c1.4-4 4.2-6 8-6s6.6 2 8 6" stroke="rgba(84,57,126,.55)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="person-chip person-chip-lg">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.8" fill="rgba(84,57,126,.7)"/><path d="M3.5 20.5c1.5-4.3 4.6-6.5 8.5-6.5s7 2.2 8.5 6.5" stroke="rgba(84,57,126,.7)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="person-chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6" fill="rgba(84,57,126,.55)"/><path d="M4 20c1.4-4 4.2-6 8-6s6.6 2 8 6" stroke="rgba(84,57,126,.55)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,96 C240,150 480,20 720,48 C960,76 1200,140 1440,80 L1440,160 L0,160 Z" fill="rgba(124,92,184,0.10)"/>
+        <path d="M0,120 C280,80 520,150 760,110 C1000,70 1220,130 1440,110 L1440,160 L0,160 Z" fill="rgba(124,92,184,0.16)"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- OUR EXPERTISE -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Our Expertise</h2>
+        <p style="color:var(--gray-600); font-size:15.5px;">We combine science, strategy, and empathy to deliver measurable impact for organisations across industries.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-img">
+            <img src="https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=600&q=75" alt="Team discussing a people-first strategy together">
+          </div>
+          <div class="why-body">
+            <h3>Human-Centric Strategies</h3>
+            <p>We place people at the heart of every initiative to ensure meaningful and sustainable growth.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-img">
+            <img src="https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=600&q=75" alt="AI-powered psychological assessment tools on a laptop">
+          </div>
+          <div class="why-body">
+            <h3>Innovative Methodologies</h3>
+            <p>Our solutions integrate the latest psychological and AI-based approaches for real-world effectiveness.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-img">
+            <img src="https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?auto=format&fit=crop&w=600&q=75" alt="Qualified professional consulting with a client organisation">
+          </div>
+          <div class="why-body">
+            <h3>Proven Expertise</h3>
+            <p>Backed by qualified professionals and successful collaborations with top-tier organisations.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-img">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=75" alt="A calm workplace built for long-term resilience">
+          </div>
+          <div class="why-body">
+            <h3>Sustainable Impact</h3>
+            <p>Every program is designed to foster long-term organisational well-being and resilience.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-img">
+            <img src="https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&fit=crop&w=600&q=75" alt="Team celebrating improved workplace culture and productivity">
+          </div>
+          <div class="why-body">
+            <h3>Demonstrated Results</h3>
+            <p>Tangible improvements in employee satisfaction, productivity, and workplace culture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR SERVICES -->
+  <section class="tag-gray">
+    <div class="wrap services-wrap">
+      <div class="services-media">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=75" alt="A calm counselling and mindfulness space">
+      </div>
+      <div>
+        <p class="eyebrow">Our Services</p>
+        <h2>Support that meets you where you are</h2>
+        <p style="color:var(--gray-600); margin-bottom:26px;">From one-on-one sessions to group support and simple self-guided tools, pick what feels right for you.</p>
+
+        <div class="service-list-item">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4S18.8 16.4 20 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div>
+            <h4>Individual Counseling</h4>
+            <p>Private one-on-one sessions focused on you, at your own pace.</p>
+          </div>
+        </div>
+        <div class="service-list-item">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="2.6" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="9" r="2.6" stroke="currentColor" stroke-width="1.6"/><path d="M3 19c.8-2.8 2.8-4.2 5-4.2S12.2 16.2 13 19M11 19c.8-2.8 2.8-4.2 5-4.2S19.2 16.2 20 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div>
+            <h4>Group Therapy</h4>
+            <p>Small guided groups where you can share, listen, and feel less alone.</p>
+          </div>
+        </div>
+        <div class="service-list-item" style="border-bottom:none;">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M9 20h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div>
+            <h4>Online Counseling</h4>
+            <p>Full sessions from home, over video call, on days it's hard to leave the house.</p>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-outline" data-page="service" style="margin-top:14px;">See All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR CLIENTS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Our Clients</p>
+        <h2>Real people, a little steadier now</h2>
+      </div>
+      <div class="clients-grid">
+        <div class="client-card">
+          <div class="quote-mark">"</div>
+          <p class="quote">I was nervous to even book my first session. My counsellor made it easy to just talk, at my own pace, without feeling rushed.</p>
+          <div class="client-row">
+            <img src="https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=200&q=75" alt="Client portrait">
+            <div>
+              <p class="name" style="margin:0;">Amira L.</p>
+              <p class="role" style="margin:0;">Individual Counseling Client</p>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="quote-mark">"</div>
+          <p class="quote">The group sessions genuinely changed how I see my own stress. It helped knowing other people were figuring things out too.</p>
+          <div class="client-row">
+            <img src="https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=200&q=75" alt="Client portrait">
+            <div>
+              <p class="name" style="margin:0;">Daniel T.</p>
+              <p class="role" style="margin:0;">Group Therapy Participant</p>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="quote-mark">"</div>
+          <p class="quote">Booking online sessions around my work hours made it possible for me to actually keep showing up, which made all the difference.</p>
+          <div class="client-row">
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=200&q=75" alt="Client portrait">
+            <div>
+              <p class="name" style="margin:0;">Priya S.</p>
+              <p class="role" style="margin:0;">Online Counseling Client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPENING HOURS -->
+  <section class="tag-gray">
+    <div class="wrap">
+      <div class="hours-wrap">
+        <div>
+          <p class="eyebrow">Opening Hours</p>
+          <h2>We're here when you need us</h2>
+          <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter waiting times.</p>
+          <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an Appointment</a>
+        </div>
+        <ul class="hours-list">
+          <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+          <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+          <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+          <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+          <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ ABOUT US PAGE ============ -->
+<div class="page" id="page-about">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1522075782449-e45a34f1ddfb?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">About Us</p>
+      <h1>Getting to know Amaze Synergy Ventures</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">Get To Know Us</p>
+        <h2>Empowering organizations through mental health excellence</h2>
+        <p style="color:var(--gray-600);">At Amaze Synergy Ventures, we understand that mental health is the cornerstone of overall well-being. Our mission is to provide compassionate and comprehensive mental health care, empowering individuals to lead fulfilling and balanced lives.</p>
+        <p style="color:var(--gray-600);">Established in 2011, Amaze Synergy Ventures (ASV) is a leading corporate mental health and well-being consultancy committed to transforming workplaces into psychologically safe, resilient, and high-performing environments. We partner with organizations to integrate evidence-based strategies, strengthen leadership capacity, and cultivate cultures that prioritize mental health, empathy, and growth.</p>
+        <p style="color:var(--gray-600);">Our mission is to empower businesses to achieve sustainable success through the promotion of emotional intelligence, organizational resilience, and employee well-being &mdash; when people thrive, organizations excel.</p>
+        <a href="#" class="btn btn-primary" data-page="appointment">Get an Appointment</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=75" alt="A quiet, calm counselling room">
+    </div>
+  </section>
+
+  <section class="tag-gray">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Our Core Values</p>
+        <h2>THRIVE</h2>
+        <p style="color:var(--gray-600); font-size:15.5px;">At ASV, our values define our identity and guide every decision, partnership, and initiative we undertake. They reflect our commitment to creating meaningful, lasting impact across all sectors.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <h4>T &ndash; Trust</h4>
+          <p>We build long-term partnerships founded on transparency, accountability, and professional ethics.</p>
+        </div>
+        <div class="value-card">
+          <h4>H &ndash; Humanity</h4>
+          <p>We lead with empathy and compassion, placing people at the heart of every solution.</p>
+        </div>
+        <div class="value-card">
+          <h4>R &ndash; Resilience</h4>
+          <p>We empower individuals and organizations to adapt, recover, and thrive in the face of challenges.</p>
+        </div>
+        <div class="value-card">
+          <h4>I &ndash; Innovation</h4>
+          <p>We integrate evidence-based frameworks and cutting-edge technology to drive meaningful change in corporate mental health.</p>
+        </div>
+        <div class="value-card">
+          <h4>V &ndash; Value</h4>
+          <p>We deliver measurable outcomes that strengthen both organizational performance and employee well-being.</p>
+        </div>
+        <div class="value-card">
+          <h4>E &ndash; Excellence</h4>
+          <p>We are committed to maintaining the highest professional standards, ensuring quality and consistency in every initiative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two-col">
+      <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1000&q=75" alt="Our consultancy team supporting an organization">
+      <div>
+        <p class="eyebrow">Our Expertise</p>
+        <h2>Depth of expertise, backed by results</h2>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;">
+          <li style="display:flex; gap:12px; color:var(--gray-600);">
+            <span style="color:var(--sage-dark); font-weight:700;">&bull;</span>
+            <span><strong style="color:var(--ink);">PRISMA Experts</strong> &mdash; Psychosocial Risk Management Framework</span>
+          </li>
+          <li style="display:flex; gap:12px; color:var(--gray-600);">
+            <span style="color:var(--sage-dark); font-weight:700;">&bull;</span>
+            <span><strong style="color:var(--ink);">Corporate Mental Health &amp; Leadership Development</strong></span>
+          </li>
+          <li style="display:flex; gap:12px; color:var(--gray-600);">
+            <span style="color:var(--sage-dark); font-weight:700;">&bull;</span>
+            <span><strong style="color:var(--ink);">Strategic Well-Being Consultation</strong></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPENING HOURS -->
+  <section class="tag-gray">
+    <div class="wrap">
+      <div class="hours-wrap">
+        <div>
+          <p class="eyebrow">Opening Hours</p>
+          <h2>We're here when you need us</h2>
+          <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter waiting times.</p>
+          <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an Appointment</a>
+        </div>
+        <ul class="hours-list">
+          <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+          <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+          <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+          <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+          <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ TEAM PAGE ============ -->
+<div class="page" id="page-team">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Our Team</p>
+      <h1>The people behind Amaze Synergy Ventures</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Meet The Team</p>
+        <h2>Consultants, psychologists &amp; trainers dedicated to workplace well-being</h2>
+        <p style="color:var(--gray-600); font-size:15.5px;">Our multidisciplinary team brings together clinical expertise, organizational psychology, and corporate training experience to support every engagement.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="photo"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=75" alt="Founder and Principal Consultant"></div>
+          <div class="info">
+            <h4>Dr. Amanda Lee</h4>
+            <p class="role">Founder &amp; Principal Consultant</p>
+            <p>Clinical psychologist with 15+ years leading organizational mental health strategy.</p>
+            <div class="socials">
+              <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 10v6M8 7.5v.01M12 16v-3.5c0-1.4 1-2.5 2.5-2.5S17 11.1 17 12.5V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+              <a href="#" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="photo"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=75" alt="Head of Corporate Training"></div>
+          <div class="info">
+            <h4>Marcus Tan</h4>
+            <p class="role">Head of Corporate Training</p>
+            <p>Leads leadership development and EQ-driven training programs for organizations.</p>
+            <div class="socials">
+              <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 10v6M8 7.5v.01M12 16v-3.5c0-1.4 1-2.5 2.5-2.5S17 11.1 17 12.5V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+              <a href="#" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="photo"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=75" alt="Senior Psychosocial Risk Consultant"></div>
+          <div class="info">
+            <h4>Priya Nair</h4>
+            <p class="role">Senior PRISMA Consultant</p>
+            <p>Specialist in psychosocial risk assessment and DOSH-aligned workplace frameworks.</p>
+            <div class="socials">
+              <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 10v6M8 7.5v.01M12 16v-3.5c0-1.4 1-2.5 2.5-2.5S17 11.1 17 12.5V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+              <a href="#" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="photo"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=75" alt="Counselling Services Manager"></div>
+          <div class="info">
+            <h4>Daniel Wong</h4>
+            <p class="role">Counselling Services Manager</p>
+            <p>Oversees individual, group, and online counselling delivery across all clients.</p>
+            <div class="socials">
+              <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 10v6M8 7.5v.01M12 16v-3.5c0-1.4 1-2.5 2.5-2.5S17 11.1 17 12.5V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+              <a href="#" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:44px;">
+        <a href="#" class="btn btn-primary" data-page="appointment">Work With Our Team</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ GALLERY PAGE ============ -->
+<div class="page" id="page-gallery">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Gallery</p>
+      <h1>Moments from our programs &amp; workshops</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Our Gallery</p>
+        <h2>A look inside our sessions, trainings &amp; team activities</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item wide tall">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=75" alt="Corporate wellness workshop in session">
+          <div class="cap">Corporate Wellness Workshop</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=700&q=75" alt="Group therapy session">
+          <div class="cap">Group Therapy Session</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=700&q=75" alt="Leadership training workshop">
+          <div class="cap">Leadership Training</div>
+        </div>
+        <div class="gallery-item tall">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=75" alt="Team building activity outdoors">
+          <div class="cap">Team Building Day</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=700&q=75" alt="Employee assistance program consultation">
+          <div class="cap">EAP Consultation</div>
+        </div>
+        <div class="gallery-item wide">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=75" alt="Peer support program training session">
+          <div class="cap">Peer Support Training</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&w=700&q=75" alt="Mindfulness and wellness talk">
+          <div class="cap">Mindfulness Talk</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ AWARDS PAGE ============ -->
+<div class="page" id="page-awards">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Awards &amp; Recognition</p>
+      <h1>Recognized for our commitment to workplace mental health</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Recognition</p>
+        <h2>Awards &amp; Recognition</h2>
+        <p style="color:var(--gray-600); font-size:15.5px;">Recognition from industry bodies and partners for our work in corporate mental health and organizational well-being.</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="emblem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="content">
+            <span class="year">2024</span>
+            <h4>Best Workplace Wellbeing Consultancy</h4>
+            <p>Awarded by the Malaysian HR &amp; Wellbeing Council for outstanding impact in corporate mental health.</p>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="emblem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 15c4 0 6-2.5 6-7V4H6v4c0 4.5 2 7 6 7z" stroke="currentColor" stroke-width="1.6"/><path d="M9 20h6M12 15v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div class="content">
+            <span class="year">2023</span>
+            <h4>DOSH-Aligned PRISMA Excellence Award</h4>
+            <p>Recognized for pioneering PRISMA-aligned psychosocial risk management programs nationwide.</p>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="emblem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div class="content">
+            <span class="year">2023</span>
+            <h4>Top Employee Assistance Program Provider</h4>
+            <p>Ranked among the leading EAP providers for corporate clients in the region.</p>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="emblem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 20l4-10 4 6 3-4 5 8H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="content">
+            <span class="year">2022</span>
+            <h4>Excellence in Leadership Development</h4>
+            <p>Honoured for our AI-powered Emotional Intelligence Intensive program for business leaders.</p>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="emblem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4S18.8 16.4 20 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div class="content">
+            <span class="year">2021</span>
+            <h4>Community Impact Award</h4>
+            <p>Recognized for our Peer Support Program empowering accredited peer supporters across organizations.</p>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="emblem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="content">
+            <span class="year">2011&ndash;Present</span>
+            <h4>Trusted Corporate Partner</h4>
+            <p>Over a decade of sustained partnerships with organizations across multiple industries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE PAGE ============ -->
+<div class="page" id="page-service">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Our Services</p>
+      <h1>Programs built for healthier, higher-performing organizations</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Our Services</p>
+        <h2>We promote excellence in workplace well-being, corporate training, and EQ-driven organisations.</h2>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="thumb"><div class="num">01</div><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=75" alt="PRISMA psychosocial risk assessment programme"></div>
+          <div class="body">
+            <h3>PRISMA</h3>
+            <p>Our PRISMA-aligned program is designed to help organizations proactively identify, assess, and manage psychosocial risks in the workplace, promoting mental well-being, compliance, and a healthier work environment.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-prisma">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">02</div><img src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=700&q=75" alt="Psychosocial Trained Person workshop"></div>
+          <div class="body">
+            <h3>Psychosocial Trained Person (PTP)</h3>
+            <p>This program is designed to equip participants with the essential knowledge and competencies to identify, assess, and manage psychosocial risks within their organizations in alignment with PRISMA standards and DOSH guidelines.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-ptp">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">03</div><img src="https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?auto=format&fit=crop&w=700&q=75" alt="Employee Assistance Program counselling session"></div>
+          <div class="body">
+            <h3>Employee Assistance Program (EAP)</h3>
+            <p>A comprehensive workplace mental health framework designed to enhance employee well-being and organizational resilience. The program integrates psychological wellness engagement with customizable modules, including counselling or targeted intervention training, customized to align with organizational goals and productivity outcomes.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-eap">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">04</div><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=700&q=75" alt="Psychological First Aid support session"></div>
+          <div class="body">
+            <h3>Psychological First Aid (PFA)</h3>
+            <p>In today's fast-paced world, Psychological First Aid (PFA) provides an evidence-based framework for immediate emotional support. It equips participants with essential skills to respond with empathy, reduce distress, and foster resilience in times of crisis.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-pfa">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">05</div><img src="https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=700&q=75" alt="Emotional Intelligence Intensive AI-powered leadership training"></div>
+          <div class="body">
+            <h3>Emotional Intelligence Intensive</h3>
+            <p>We offer an innovative training program designed to enhance emotional intelligence (EQ) among business leaders through advanced AI-powered tools. It helps leaders strengthen self-awareness, emotional regulation, and interpersonal effectiveness while gaining personalized insights into their personality and stress patterns.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-eq-intensive">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">06</div><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=75" alt="AI-driven leadership analytics dashboard"></div>
+          <div class="body">
+            <h3>Artificial Intelligence Leadership Mastery</h3>
+            <p>An advanced leadership development course that blends AI-powered analytical tools with emotional intelligence principles to build data-driven, human-centered leaders ready for digital transformation.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-ai-leadership">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">07</div><img src="https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&fit=crop&w=700&q=75" alt="Corporate team building activity"></div>
+          <div class="body">
+            <h3>Team Building</h3>
+            <p>We offer structured programs that strengthen collaboration, trust, and communication within corporate organizations, fostering teamwork and a high-performance culture.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-team-building">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">08</div><img src="https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=700&q=75" alt="Peer Support Program group training"></div>
+          <div class="body">
+            <h3>Peer Support Program</h3>
+            <p>We offer a comprehensive training program that equips individuals with essential counselling skills to become accredited peer supporters, empowering them to provide empathetic and practical mental health support within their organizations.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-peer-support">Learn More</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="thumb"><div class="num">09</div><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=700&q=75" alt="Professional therapy and counselling session"></div>
+          <div class="body">
+            <h3>Therapy</h3>
+            <p>We provide professional therapy and counselling sessions led by licensed mental health practitioners. These sessions help employees navigate emotional challenges and personal struggles affecting their well-being and performance. Our services are offered independently to promote holistic mental health care within organizations.</p>
+            <a href="#" class="btn btn-outline service-more" data-page="service-therapy">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:44px;">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPENING HOURS -->
+  <section>
+    <div class="wrap">
+      <div class="hours-wrap">
+        <div>
+          <p class="eyebrow">Opening Hours</p>
+          <h2>We're here when you need us</h2>
+          <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter waiting times.</p>
+          <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an Appointment</a>
+        </div>
+        <ul class="hours-list">
+          <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+          <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+          <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+          <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+          <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: PRISMA – PSYCHOSOCIAL RISK MANAGEMENT FRAMEWORK ============ -->
+
+<div class="page" id="page-service-prisma">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">PRISMA</p>
+      <h1>PRISMA – Psychosocial Risk Management Framework</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>Our PRISMA-aligned program is designed to help organizations proactively identify, assess, and manage psychosocial risks in the workplace, promoting mental well-being, regulatory compliance, and a healthier organizational culture.</p>
+        <p>This framework provides a structured, data-driven approach through validated assessment tools (LEO26 &amp; EPC23), actionable risk management strategies, and expert guidance from certified Psychosocial Trained Persons (PTPs) in accordance with OSHA 1994 and ISO 45003 standards.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: PSYCHOSOCIAL TRAINED PERSON (PTP) CERTIFICATION PROGRAM ============ -->
+
+<div class="page" id="page-service-ptp">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Certification Program</p>
+      <h1>Psychosocial Trained Person (PTP) Certification Program</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>The Psychosocial Trained Person (PTP) Certification Program is an exclusive professional training initiative conducted and certified by Amaze Synergy Ventures (ASV).</p>
+        <p>This program is designed to equip participants with the essential knowledge and competencies to identify, assess, and manage psychosocial risks within their organizations in alignment with PRISMA standards and DOSH guidelines.</p>
+        <p>Participants will gain a comprehensive understanding of workplace mental health, relevant legislation, and psychosocial risk management strategies through expert-led sessions and practical case studies. Upon successful completion, participants will be endorsed by ASV as certified Psychosocial Trained Persons, empowering them to champion mental health and well-being within their organizations.</p>
+        <div class="key-areas">
+          <h4>Key Learning Areas</h4>
+          <ul>
+          <li>Mental health in the workplace</li>
+          <li>Relevant legislation and standards</li>
+          <li>PRISMA scope and objectives</li>
+          <li>PRISMA process and assessment</li>
+          <li>Risk management strategies</li>
+          <li>Practical case studies</li>
+          <li>Test and final assignment</li>
+          </ul>
+        </div>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: PEER SUPPORT PROGRAMME ============ -->
+
+<div class="page" id="page-service-peer-support">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Peer Support</p>
+      <h1>Peer Support Programme</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>The Peer Support Program by Amaze Synergy Ventures (ASV) is a comprehensive, professionally structured training initiative designed to equip individuals with fundamental counseling, communication, and emotional support skills, certifying them as accredited peer supporters within their organizations.</p>
+        <p>This program aims to build an internal support ecosystem where employees can confidently provide empathetic, effective, and confidential mental health assistance to colleagues facing stress, burnout, or emotional challenges.</p>
+        <p>Through a blend of theoretical learning, interactive workshops, and role-play simulations, participants will gain the ability to identify early signs of distress, practice active listening, and offer appropriate support or referrals when needed.</p>
+        <p>The Peer Support Program ultimately fosters a culture of care and psychological safety, reinforcing organizational resilience and promoting a workplace where mental well-being is prioritized at every level.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: EMPLOYEE ASSISTANCE PROGRAMME (EAP) ============ -->
+
+<div class="page" id="page-service-eap">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">EAP</p>
+      <h1>Employee Assistance Programme (EAP)</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>The Employee Assistance Programme (EAP) by Amaze Synergy Ventures (ASV) is a comprehensive mental health support system designed to enhance employee well-being and organizational effectiveness.</p>
+        <p>Through confidential counseling services, psychological wellness talks, and customizable intervention modules, ASV helps organizations address emotional, behavioral, and performance-related challenges within the workforce.</p>
+        <p>By fostering a culture of empathy, resilience, and psychological safety, the EAP enables employees to thrive while strengthening overall productivity and workplace harmony.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: EMOTIONAL INTELLIGENCE INTENSIVE ============ -->
+
+<div class="page" id="page-service-eq-intensive">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Leadership Training</p>
+      <h1>Emotional Intelligence Intensive</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>We offer the Emotional Intelligence Intensive, an innovative and comprehensive training initiative that enhances emotional intelligence (EQ) through the integration of cutting-edge AI-powered tools.</p>
+        <p>This program enables business leaders to strengthen emotional awareness, regulation, and interpersonal communication while leveraging AI insights to understand their personality traits, stress responses, and cognitive strengths, ultimately driving stronger leadership and workplace harmony.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: ARTIFICIAL INTELLIGENCE LEADERSHIP MASTERY ============ -->
+
+<div class="page" id="page-service-ai-leadership">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Leadership Training</p>
+      <h1>Artificial Intelligence Leadership Mastery</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>The Artificial Intelligence Leadership Mastery program is one of the most advanced leadership development courses designed to cultivate emotionally intelligent, data-driven leaders capable of thriving in the age of digital transformation.</p>
+        <p>By integrating AI-powered analytical tools and emotional intelligence principles, this program empowers leaders to enhance strategic decision-making, emotional adaptability, and human-centered leadership effectiveness in a rapidly evolving corporate landscape.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: PSYCHOLOGICAL FIRST AID (PFA) ============ -->
+
+<div class="page" id="page-service-pfa">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">PFA</p>
+      <h1>Psychological First Aid (PFA)</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>In today's world, Psychological First Aid (PFA) has become an essential skill for both organizations and individuals. This accredited, evidence-based program is designed to reduce immediate emotional distress, promote adaptive coping, and support recovery following traumatic or high-stress events.</p>
+        <p>Participants gain practical, structured skills to deliver empathetic and effective emotional support to colleagues, clients, or community members during crises, fostering resilience and psychological readiness across teams and organizations.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: TEAM BUILDING ============ -->
+
+<div class="page" id="page-service-team-building">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Team Building</p>
+      <h1>Team Building</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>ASV's Team Building Program is strategically designed to strengthen collaboration, communication, and trust within corporate organizations. Through a series of experiential learning activities and guided reflections, participants develop stronger interpersonal dynamics and a shared sense of purpose.</p>
+        <p>The program focuses on enhancing team cohesion, leadership synergy, and collective problem-solving, ensuring teams can perform effectively under pressure while maintaining mutual respect and engagement.</p>
+        <p>By promoting emotional intelligence and workplace unity, ASV's team-building initiatives help organizations cultivate high-performing teams that thrive in both productivity and morale.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICE DETAIL: THERAPY &AMP; COUNSELLING SERVICES ============ -->
+
+<div class="page" id="page-service-therapy">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Therapy & Counselling</p>
+      <h1>Therapy &amp; Counselling Services</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap service-detail">
+      <a href="#" class="btn btn-outline" data-page="service" style="margin-bottom:26px;">&larr; Back to All Services</a>
+        <p>Amaze Synergy Ventures (ASV) offers comprehensive therapy and counselling services facilitated by licensed mental health professionals, designed to promote psychological well-being and personal growth across diverse needs.</p>
+        <p>Our services include individual therapy for personal challenges and emotional regulation, group therapy for shared healing and peer support, and online therapy to ensure accessibility and confidentiality regardless of location.</p>
+        <p>We also specialize in relationship and premarital counselling, helping couples strengthen communication, manage conflict, and build healthy, resilient partnerships founded on trust and understanding.</p>
+        <p>Through a compassionate, evidence-based approach, ASV provides a safe and confidential environment where individuals and couples can explore their experiences, develop coping strategies, and enhance their overall mental well-being.</p>
+      <div class="service-detail-cta">
+        <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+        <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ RESOURCES PAGE ============ -->
+<div class="page" id="page-resources">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Resources</p>
+      <h1>Helpful resources for a healthier workplace</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Explore</p>
+        <h2>Tools and guides to support your organisation</h2>
+        <p style="color:var(--gray-600); font-size:15.5px;">A growing collection of practical resources for leaders, HR teams, and employees who want to build a mentally healthier workplace.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <h4>Workplace Wellbeing Guide</h4>
+          <p>Practical, evidence-based steps for building a psychologically safe workplace culture.</p>
+        </div>
+        <div class="value-card">
+          <h4>Manager's Guide to Psychological Safety</h4>
+          <p>How leaders can spot early signs of distress and support their teams with confidence.</p>
+        </div>
+        <div class="value-card">
+          <h4>Stress & Resilience Toolkit</h4>
+          <p>Simple, everyday techniques employees can use to manage stress and stay resilient.</p>
+        </div>
+        <div class="value-card">
+          <h4>PRISMA & DOSH Compliance Checklist</h4>
+          <p>A quick reference to help organisations stay aligned with psychosocial risk management standards.</p>
+        </div>
+        <div class="value-card">
+          <h4>Return-to-Work Toolkit</h4>
+          <p>Guidance for supporting employees returning to work after a mental health leave.</p>
+        </div>
+        <div class="value-card">
+          <h4>Articles & Insights</h4>
+          <p>Read our latest thinking on mental health, resilience, and organisational wellbeing.</p>
+          <a href="#" class="btn btn-outline" data-page="insights" style="margin-top:14px;">Visit Insights</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPENING HOURS -->
+  <section>
+    <div class="wrap">
+      <div class="hours-wrap">
+        <div>
+          <p class="eyebrow">Opening Hours</p>
+          <h2>We're here when you need us</h2>
+          <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter waiting times.</p>
+          <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an Appointment</a>
+        </div>
+        <ul class="hours-list">
+          <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+          <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+          <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+          <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+          <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ INSIGHTS PAGE ============ -->
+<div class="page" id="page-insights">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1526916027372-0c0852cef5d3?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Insights</p>
+      <h1>Notes on mind, calm, and everyday life</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=75" alt="Woman practicing a calm morning routine"></div>
+          <div class="body">
+            <p class="cat">Everyday Habits</p>
+            <h3>Small habits that quietly support your mental health</h3>
+            <p>A few realistic, low-effort habits that add up over time. No drastic routine required.</p>
+            <a href="#" class="readmore">Read more →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?auto=format&fit=crop&w=700&q=75" alt="A supportive counselling conversation"></div>
+          <div class="body">
+            <p class="cat">Getting Support</p>
+            <h3>How to know when it's time to talk to someone</h3>
+            <p>The quiet signs that suggest it might help to bring in outside support.</p>
+            <a href="#" class="readmore">Read more →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=700&q=75" alt="A calm outdoor moment of mindfulness"></div>
+          <div class="body">
+            <p class="cat">Mindfulness</p>
+            <h3>Understanding anxiety: a gentle introduction</h3>
+            <p>What anxiety actually is, and a few simple ways to work with it day to day.</p>
+            <a href="#" class="readmore">Read more →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPENING HOURS -->
+  <section>
+    <div class="wrap">
+      <div class="hours-wrap">
+        <div>
+          <p class="eyebrow">Opening Hours</p>
+          <h2>We're here when you need us</h2>
+          <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter waiting times.</p>
+          <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an Appointment</a>
+        </div>
+        <ul class="hours-list">
+          <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+          <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+          <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+          <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+          <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT PAGE ============ -->
+<div class="page" id="page-contact">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Contact</p>
+      <h1>We'd like to hear from you</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Questions before you book? Send us a note</h2>
+      </div>
+
+      <form class="form-card" id="contactForm" style="max-width:720px; margin:0 auto;">
+        <div class="form-success" id="contactSuccess">Thanks for reaching out. Our team will get back to you shortly.</div>
+        <div class="form-row">
+          <div class="field">
+            <label for="cName">Full name</label>
+            <input type="text" id="cName" required>
+          </div>
+          <div class="field">
+            <label for="cEmail">Email address</label>
+            <input type="email" id="cEmail" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cSubject">Subject</label>
+          <input type="text" id="cSubject" placeholder="What's this about?">
+        </div>
+        <div class="field">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+
+      <div class="contact-info-grid">
+        <div class="info-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg></div>
+          <h4>Email</h4>
+          <p>hello@amazesynergyventures.my</p>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4c0 1-1 2-2 2C10.5 21 3 13.5 3 6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <h4>Phone</h4>
+          <p>+60 3-2200 1188</p>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg></div>
+          <h4>Location</h4>
+          <p>Petaling Jaya, Selangor, Malaysia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ MAKE AN APPOINTMENT PAGE ============ -->
+<div class="page" id="page-appointment">
+  <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1555817128-342e1c8b3101?auto=format&fit=crop&w=1800&q=75')">
+    <div class="wrap banner-inner">
+      <p class="eyebrow">Make an Appointment</p>
+      <h1>Let's find a time that works for you</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap appt-wrap">
+      <div class="appt-side">
+        <p class="eyebrow">Before You Book</p>
+        <h2>What to expect</h2>
+        <p style="color:var(--gray-600); margin-bottom:24px;">Fill in the form and our team will confirm your session by email or phone within one working day.</p>
+        <div class="info-card">
+          <h4>First session</h4>
+          <p>A relaxed conversation to understand what you're looking for, and match you with the right counsellor.</p>
+        </div>
+        <div class="info-card">
+          <h4>Rescheduling</h4>
+          <p>Life happens. Just let us know at least a day ahead and we'll help you find a new slot.</p>
+        </div>
+        <div class="info-card">
+          <h4>Privacy</h4>
+          <p>Everything you share with us stays confidential, in line with professional counseling standards.</p>
+        </div>
+      </div>
+
+      <form class="form-card" id="apptForm">
+        <div class="form-success" id="apptSuccess">Your appointment request has been received. We'll confirm the details with you shortly.</div>
+        <div class="form-row">
+          <div class="field">
+            <label for="aName">Full name</label>
+            <input type="text" id="aName" required>
+          </div>
+          <div class="field">
+            <label for="aPhone">Phone number</label>
+            <input type="tel" id="aPhone" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="aEmail">Email address</label>
+          <input type="email" id="aEmail" required>
+        </div>
+        <div class="field">
+          <label for="aService">Service</label>
+          <select id="aService">
+            <option>Individual Counseling</option>
+            <option>Group Therapy</option>
+            <option>Couples &amp; Family Counseling</option>
+            <option>Online Counseling</option>
+            <option>Workshops &amp; Talks</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="aDate">Preferred date</label>
+            <input type="date" id="aDate">
+          </div>
+          <div class="field">
+            <label for="aTime">Preferred time</label>
+            <input type="time" id="aTime">
+          </div>
+        </div>
+        <div class="field">
+          <label for="aMessage">Anything you'd like us to know?</label>
+          <textarea id="aMessage" placeholder="Optional"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Request Appointment</button>
+        <p class="form-note">This confirms your request only. A member of our team will follow up to finalise the time.</p>
+      </form>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" data-page="home" style="color:var(--white);">
+          <img src="logo.png" alt="Amaze Synergy Ventures logo" style="filter:brightness(0) invert(1);" onerror="this.style.display='none'; document.getElementById('logoFallbackFooter').style.display='flex';">
+          <span id="logoFallbackFooter" class="logo-fallback" style="display:none; color:var(--white);">
+            <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.4" opacity="0.35"/>
+              <path d="M20 6c5 5 5 9 0 14s-5 9 0 14c5-5 5-9 0-14s-5-9 0-14z" fill="#b39ddc"/>
+            </svg>
+            Amaze Synergy Ventures
+          </span>
+        </a>
+        <p>A calm, judgment-free space for individual, group, and online mental health support.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 21v-7h2.5l.5-3H14V9c0-.9.3-1.5 1.7-1.5H17V5c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2V11H8v3h2.6v7H14z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#" data-page="about">About Us</a></li>
+          <li><a href="#" data-page="team">Team</a></li>
+          <li><a href="#" data-page="gallery">Gallery</a></li>
+          <li><a href="#" data-page="awards">Awards</a></li>
+          <li><a href="#" data-page="service">Service</a></li>
+          <li><a href="#" data-page="insights">Insights</a></li>
+          <li><a href="#" data-page="resources">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#" data-page="contact">Contact</a></li>
+          <li><a href="#" data-page="appointment">Make an Appointment</a></li>
+          <li><a href="#" data-page="home">Home</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach Us</h4>
+        <ul>
+          <li>hello@amazesynergyventures.my</li>
+          <li>+60 3-2200 1188</li>
+          <li>Petaling Jaya, Selangor, Malaysia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Amaze Synergy Ventures. All rights reserved.</span>
+      <span>No Health without Mental Health.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Year ----------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---------- Page navigation ----------
+  var pages = document.querySelectorAll('.page');
+
+  function goToPage(pageId){
+    pages.forEach(function(p){ p.classList.remove('active'); });
+    var target = document.getElementById('page-' + pageId);
+    if(target){ target.classList.add('active'); }
+
+    document.querySelectorAll('nav.primary-nav a, .mobile-submenu a, .mobile-panel > a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-page') === pageId);
+    });
+
+    // Highlight the "About Us" trigger (desktop + mobile) when any of its sub-pages are active,
+    // and swap its label to match the current section (e.g. "Team"), reverting to "About Us"
+    // whenever we're not inside that group (e.g. back on Home).
+    var aboutGroupLabels = { about:'About Us', team:'Team', gallery:'Gallery', awards:'Awards' };
+    var inAboutGroup = aboutGroupLabels.hasOwnProperty(pageId);
+    var label = inAboutGroup ? aboutGroupLabels[pageId] : 'About Us';
+
+    document.querySelectorAll('.nav-trigger').forEach(function(t){
+      t.classList.toggle('active', inAboutGroup);
+    });
+    document.querySelectorAll('.nav-trigger-label, .mobile-group-label').forEach(function(el){
+      el.textContent = label;
+    });
+    var mobileTrigger = document.getElementById('mobileAboutTrigger');
+    if(mobileTrigger){ mobileTrigger.classList.toggle('active', inAboutGroup); }
+
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+    closeMobile();
+    updateHeaderState();
+  }
+
+  // Event delegation: catches clicks on any current or future [data-page] element,
+  // regardless of overlays, so header/nav buttons always route to their own section.
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('[data-page]');
+    if(!link) return;
+    e.preventDefault();
+    goToPage(link.getAttribute('data-page'));
+
+    // If the click came from inside the "About Us" dropdown group, close the dropdown
+    // immediately (even though the mouse may still be hovering it) — it will only
+    // reopen the next time the mouse genuinely re-enters the trigger area.
+    var navItem = link.closest('#aboutNavItem');
+    if(navItem){
+      navItem.classList.add('force-closed');
+      var releaseClose = function(){
+        navItem.classList.remove('force-closed');
+        navItem.removeEventListener('mouseleave', releaseClose);
+      };
+      navItem.addEventListener('mouseleave', releaseClose);
+    }
+  });
+
+  // ---------- Header transparent-on-hero behaviour ----------
+  var header = document.getElementById('siteHeader');
+  function isHomeActive(){
+    return document.getElementById('page-home').classList.contains('active');
+  }
+  function updateHeaderState(){
+    if(isHomeActive() && window.scrollY < window.innerHeight * 0.78){
+      header.classList.remove('solid');
+    } else {
+      header.classList.add('solid');
+    }
+  }
+  window.addEventListener('scroll', updateHeaderState);
+  updateHeaderState();
+
+  // ---------- Mobile menu ----------
+  var burgerBtn = document.getElementById('burgerBtn');
+  var mobilePanel = document.getElementById('mobilePanel');
+  var mobileOverlay = document.getElementById('mobileOverlay');
+  var mobileClose = document.getElementById('mobileClose');
+  function openMobile(){ mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); }
+  function closeMobile(){ mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+  burgerBtn.addEventListener('click', openMobile);
+  mobileClose.addEventListener('click', closeMobile);
+  mobileOverlay.addEventListener('click', closeMobile);
+
+  // ---------- Mobile "About Us" submenu toggle ----------
+  var mobileAboutGroup = document.getElementById('mobileAboutGroup');
+  var mobileAboutTrigger = document.getElementById('mobileAboutTrigger');
+  if(mobileAboutTrigger){
+    mobileAboutTrigger.addEventListener('click', function(){
+      mobileAboutGroup.classList.toggle('open');
+    });
+  }
+
+  // ---------- Contact & Appointment fake-submit ----------
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('contactSuccess').classList.add('show');
+    this.reset();
+  });
+  document.getElementById('apptForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('apptSuccess').classList.add('show');
+    this.reset();
+  });
+</script>
+</body>
+</html>
