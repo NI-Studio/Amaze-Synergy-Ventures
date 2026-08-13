@@ -1486,6 +1486,73 @@
       color: var(--sage-dark);
     }
 
+    /* ===== SELF TEST ===== */
+    .selftest-card {
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .st-question {
+      margin-bottom: 26px;
+    }
+
+    .st-question p.q {
+      font-weight: 600;
+      font-size: 15.5px;
+      margin-bottom: 12px;
+    }
+
+    .st-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .st-options label {
+      border: 1px solid var(--gray-300);
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      background: var(--white);
+    }
+
+    .st-options input {
+      display: none;
+    }
+
+    .st-options input:checked+span {
+      color: var(--white);
+    }
+
+    .st-options label:has(input:checked) {
+      background: var(--sage);
+      border-color: var(--sage);
+      color: var(--white);
+    }
+
+    .st-result {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 26px;
+      margin-top: 8px;
+    }
+
+    .st-result.show {
+      display: block;
+    }
+
+    .st-disclaimer {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 22px;
+    }
+
     /* ===== APPOINTMENT ===== */
     .appt-wrap {
       display: grid;
@@ -1705,7 +1772,6 @@
         padding: 12px 0;
       }
 
-      /* Hero slider mobile styles */
       .hero {
         min-height: 520px;
       }
@@ -1793,6 +1859,10 @@
         padding: 24px 20px;
       }
 
+      .selftest-card {
+        padding: 26px 20px;
+      }
+
       .mobile-panel {
         width: 88%;
         padding: 24px 20px;
@@ -1856,82 +1926,7 @@
       .slide-inner h1 {
         font-size: 26px;
       }
-    }
 
-    /* Self test CSS */
-    .selftest-card {
-      background: var(--bg);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .st-question {
-      margin-bottom: 26px;
-    }
-
-    .st-question p.q {
-      font-weight: 600;
-      font-size: 15.5px;
-      margin-bottom: 12px;
-    }
-
-    .st-options {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .st-options label {
-      border: 1px solid var(--gray-300);
-      border-radius: 999px;
-      padding: 9px 18px;
-      font-size: 14px;
-      cursor: pointer;
-      background: var(--white);
-    }
-
-    .st-options input {
-      display: none;
-    }
-
-    .st-options input:checked+span {
-      color: var(--white);
-    }
-
-    .st-options label:has(input:checked) {
-      background: var(--sage);
-      border-color: var(--sage);
-      color: var(--white);
-    }
-
-    .st-result {
-      display: none;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 14px;
-      padding: 26px;
-      margin-top: 8px;
-    }
-
-    .st-result.show {
-      display: block;
-    }
-
-    .st-disclaimer {
-      font-size: 13px;
-      color: var(--gray-500);
-      margin-top: 22px;
-    }
-
-    @media (max-width: 600px) {
-      .selftest-card {
-        padding: 26px 20px;
-      }
-    }
-
-    @media (max-width: 420px) {
       .st-options label {
         padding: 8px 14px;
         font-size: 13.5px;
@@ -1980,7 +1975,8 @@
         </div>
 
         <a href="#" data-page="service">Services</a>
-        <a href="#" data-page="selftest">Self Test</a> <a href="#" data-page="insights">Blog</a>
+        <a href="#" data-page="selftest">Self Test</a>
+        <a href="#" data-page="insights">Blog</a>
         <a href="#" data-page="contact">Contact</a>
       </nav>
 
@@ -2929,6 +2925,29 @@
           </div>
         </div>
       </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ============ SERVICE DETAIL: PTP ============ -->
@@ -2968,6 +2987,29 @@
           </div>
         </div>
       </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ============ SERVICE DETAIL: PEER SUPPORT ============ -->
@@ -2990,6 +3032,29 @@
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -3017,6 +3082,29 @@
           </div>
         </div>
       </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ============ SERVICE DETAIL: EQ INTENSIVE ============ -->
@@ -3038,6 +3126,29 @@
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -3066,6 +3177,29 @@
           </div>
         </div>
       </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ============ SERVICE DETAIL: PFA ============ -->
@@ -3088,6 +3222,29 @@
           <div class="service-detail-cta">
             <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-outline" data-page="service">See All Services</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -3116,6 +3273,29 @@
           </div>
         </div>
       </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ============ SERVICE DETAIL: THERAPY ============ -->
@@ -3141,9 +3321,32 @@
           </div>
         </div>
       </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- ============ SELF-TEST PAGE ============ -->
+    <!-- ============ SELF TEST PAGE ============ -->
     <div class="page" id="page-selftest">
       <div class="page-banner"
         style="background-image:url('https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=1800&q=75')">
@@ -3217,6 +3420,29 @@
           </div>
         </div>
       </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ============ BLOG PAGE ============ -->
@@ -3231,7 +3457,6 @@
 
       <section>
         <div class="wrap">
-          <!-- Tambahan Section Head (Gambar rujukan) -->
           <div class="section-head center">
             <p class="eyebrow">Explore</p>
             <h2>Tools and guides to support your organisation</h2>
@@ -3272,6 +3497,29 @@
                 <a href="#" class="readmore">Read more →</a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPENING HOURS -->
+      <section class="tag-gray">
+        <div class="wrap">
+          <div class="hours-wrap">
+            <div>
+              <p class="eyebrow">Opening Hours</p>
+              <h2>We're here when you need us</h2>
+              <p class="lead">Walk-in visits are welcome during opening hours, though booking ahead means shorter
+                waiting times.</p>
+              <a href="#" class="btn btn-primary" data-page="appointment" style="margin-top:6px;">Make an
+                Appointment</a>
+            </div>
+            <ul class="hours-list">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM</span></li>
+              <li><span class="day">Saturday</span><span class="time">9:00 AM – 1:00 PM</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+              <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
+              <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -3474,9 +3722,9 @@
             <li><a href="#" data-page="team">Team</a></li>
             <li><a href="#" data-page="gallery">Gallery</a></li>
             <li><a href="#" data-page="awards">Awards</a></li>
-            <li><a href="#" data-page="service">Service</a></li>
-            <li><a href="#" data-page="insights">Insights</a></li>
-            <li><a href="#" data-page="resources">Resources</a></li>
+            <li><a href="#" data-page="service">Services</a></li>
+            <li><a href="#" data-page="selftest">Self Test</a></li>
+            <li><a href="#" data-page="insights">Blog</a></li>
           </ul>
         </div>
         <div>
@@ -3540,7 +3788,6 @@
 
     // Event delegation
     document.addEventListener('click', function (e) {
-      // Izinkan pautan hash (#) scroll normal (untuk "Explore Website" butang Slaid 1)
       var anchor = e.target.closest('a');
       if (anchor) {
         var href = anchor.getAttribute('href');
@@ -3628,19 +3875,7 @@
       startSlider();
     }
 
-    // ---------- Contact & Appointment fake-submit ----------
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('contactSuccess').classList.add('show');
-      this.reset();
-    });
-    document.getElementById('apptForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('apptSuccess').classList.add('show');
-      this.reset();
-    });
-
-    // ---------- Self-test logic ----------
+    // ---------- Self-Test Logic ----------
     var selfTestForm = document.getElementById('selfTestForm');
     var stResult = document.getElementById('stResult');
     var stResultTitle = document.getElementById('stResultTitle');
@@ -3669,6 +3904,18 @@
         stResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     }
+
+    // ---------- Contact & Appointment fake-submit ----------
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('contactSuccess').classList.add('show');
+      this.reset();
+    });
+    document.getElementById('apptForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('apptSuccess').classList.add('show');
+      this.reset();
+    });
   </script>
 </body>
 
