@@ -1932,6 +1932,28 @@
         font-size: 13.5px;
       }
     }
+
+    /* ===== SCROLL REVEAL (fade + slide up on scroll) ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .7s cubic-bezier(.2, .65, .3, .9), transform .7s cubic-bezier(.2, .65, .3, .9);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 
@@ -3933,6 +3955,63 @@
       document.getElementById('apptSuccess').classList.add('show');
       this.reset();
     });
+
+    // ---------- Scroll Reveal (fade + slide up as you scroll down) ----------
+    (function () {
+      var revealSelectors = [
+        '.section-head', '.team-card', '.gallery-item', '.value-card',
+        '.info-card', '.award-card', '.why-card', '.service-card',
+        '.blog-card', '.client-card', '.hours-wrap', '.form-card',
+        '.selftest-card', '.service-detail', '.appt-side > .info-card',
+        '.contact-info-grid .info-card'
+      ];
+
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      function initReveal(scope) {
+        var els = scope.querySelectorAll(revealSelectors.join(','));
+
+        els.forEach(function (el) {
+          if (el.classList.contains('reveal')) return; // already set up
+
+          el.classList.add('reveal');
+
+          // Stagger siblings inside the same grid/row for a cascading effect
+          var siblingIndex = 0;
+          var p = el.parentElement;
+          if (p) {
+            var children = Array.prototype.filter.call(p.children, function (c) {
+              return c === el || c.matches ? c.matches(revealSelectors.join(',')) : false;
+            });
+            siblingIndex = children.indexOf(el);
+          }
+          var delay = Math.min(siblingIndex, 5) * 90;
+          el.style.setProperty('--reveal-delay', delay + 'ms');
+
+          revealObserver.observe(el);
+        });
+      }
+
+      // Set up reveal on initial load (home page is active by default)
+      initReveal(document);
+
+      // Re-run whenever a page becomes active, in case elements were freshly
+      // measured (e.g. first time a tab is switched to) and to catch any
+      // elements not yet observed.
+      var originalGoToPage = goToPage;
+      goToPage = function (pageId) {
+        originalGoToPage(pageId);
+        var activePage = document.getElementById('page-' + pageId);
+        if (activePage) { initReveal(activePage); }
+      };
+    })();
   </script>
 </body>
 
