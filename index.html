@@ -732,6 +732,9 @@
       border: 1px solid var(--gray-200);
       box-shadow: var(--shadow);
       transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .service-card::before {
@@ -805,6 +808,9 @@
 
     .service-card .body {
       padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .service-card h3 {
@@ -814,12 +820,14 @@
     .service-card p {
       font-size: 14.5px;
       color: var(--gray-600);
+      flex: 1;
     }
 
     .service-card .service-more {
       margin-top: 14px;
       padding: 9px 18px;
       font-size: 13.5px;
+      align-self: flex-start;
     }
 
     .service-card:hover .service-more {
@@ -1484,6 +1492,159 @@
       font-size: 13.5px;
       font-weight: 600;
       color: var(--sage-dark);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    /* ===== BLOG DETAIL / SINGLE ARTICLE ===== */
+    .blog-detail-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .blog-detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 22px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .blog-detail-back:hover {
+      color: var(--sage-dark);
+    }
+
+    .blog-detail-cat {
+      font-size: 12.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--sage);
+    }
+
+    .blog-detail-wrap h1 {
+      font-size: clamp(26px, 4vw, 36px);
+      margin: 10px 0 22px;
+    }
+
+    .blog-detail-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 26px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--gray-200);
+      flex-wrap: wrap;
+    }
+
+    .blog-detail-meta img.author-photo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: none;
+    }
+
+    .blog-detail-author-name {
+      font-weight: 600;
+      font-size: 14.5px;
+      color: var(--ink);
+    }
+
+    .blog-detail-meta-sub {
+      font-size: 13px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .blog-detail-meta-sub .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gray-500);
+      flex: none;
+    }
+
+    .blog-detail-views {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .blog-detail-cover {
+      width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .blog-detail-cover img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .blog-detail-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--gray-700);
+    }
+
+    .blog-detail-body h3 {
+      font-size: 19px;
+      margin-top: 32px;
+    }
+
+    .blog-detail-related {
+      margin: 34px 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .blog-detail-related img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .blog-detail-related .cap {
+      padding: 10px 4px 0;
+      font-size: 13px;
+      color: var(--gray-600);
+      font-style: italic;
+    }
+
+    .blog-detail-footer {
+      margin-top: 40px;
+      padding-top: 26px;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width:640px) {
+      .blog-detail-cover img {
+        height: 220px;
+      }
+
+      .blog-detail-related img {
+        height: 200px;
+      }
     }
 
     /* ===== SELF TEST ===== */
@@ -2135,26 +2296,6 @@
               <div class="why-body">
                 <h3>Proven Expertise</h3>
                 <p>Backed by qualified professionals and successful collaborations with top-tier organisations.</p>
-              </div>
-            </div>
-            <div class="why-card">
-              <div class="why-img">
-                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=75"
-                  alt="A calm workplace built for long-term resilience">
-              </div>
-              <div class="why-body">
-                <h3>Sustainable Impact</h3>
-                <p>Every program is designed to foster long-term organisational well-being and resilience.</p>
-              </div>
-            </div>
-            <div class="why-card">
-              <div class="why-img">
-                <img src="https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&fit=crop&w=600&q=75"
-                  alt="Team celebrating improved workplace culture and productivity">
-              </div>
-              <div class="why-body">
-                <h3>Demonstrated Results</h3>
-                <p>Tangible improvements in employee satisfaction, productivity, and workplace culture.</p>
               </div>
             </div>
           </div>
@@ -3494,7 +3635,7 @@
                 <p class="cat">Everyday Habits</p>
                 <h3>Small habits that quietly support your mental health</h3>
                 <p>A few realistic, low-effort habits that add up over time. No drastic routine required.</p>
-                <a href="#" class="readmore">Read more →</a>
+                <a href="#" class="readmore" data-blog="habits">Read more →</a>
               </div>
             </div>
             <div class="blog-card">
@@ -3505,7 +3646,7 @@
                 <p class="cat">Getting Support</p>
                 <h3>How to know when it's time to talk to someone</h3>
                 <p>The quiet signs that suggest it might help to bring in outside support.</p>
-                <a href="#" class="readmore">Read more →</a>
+                <a href="#" class="readmore" data-blog="support">Read more →</a>
               </div>
             </div>
             <div class="blog-card">
@@ -3516,7 +3657,7 @@
                 <p class="cat">Mindfulness</p>
                 <h3>Understanding anxiety: a gentle introduction</h3>
                 <p>What anxiety actually is, and a few simple ways to work with it day to day.</p>
-                <a href="#" class="readmore">Read more →</a>
+                <a href="#" class="readmore" data-blog="anxiety">Read more →</a>
               </div>
             </div>
           </div>
@@ -3542,6 +3683,69 @@
               <li><span class="day">Public Holidays</span><span class="time">Closed</span></li>
               <li><span class="day">Online Sessions</span><span class="time">By appointment</span></li>
             </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ BLOG DETAIL (SINGLE ARTICLE) PAGE ============ -->
+    <div class="page" id="page-blog-detail">
+      <section style="padding-top:150px;">
+        <div class="wrap">
+          <div class="blog-detail-wrap">
+            <button type="button" class="blog-detail-back" data-page="insights">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Back to Blog
+            </button>
+
+            <p class="blog-detail-cat" id="bdCategory">Category</p>
+            <h1 id="bdTitle">Article title</h1>
+
+            <div class="blog-detail-meta">
+              <img class="author-photo" id="bdAuthorPhoto" src="" alt="Author photo">
+              <div>
+                <div class="blog-detail-author-name" id="bdAuthorName">Author name</div>
+                <div class="blog-detail-meta-sub">
+                  <span id="bdDate">Date</span>
+                  <span class="dot"></span>
+                  <span id="bdReadTime">5 min read</span>
+                  <span class="dot"></span>
+                  <span class="blog-detail-views">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z" stroke="currentColor"
+                        stroke-width="1.5" />
+                      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                    <span id="bdViews">0 views</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog-detail-cover">
+              <img id="bdCover" src="" alt="Article cover image">
+            </div>
+
+            <div class="blog-detail-body" id="bdBody"></div>
+
+            <div class="blog-detail-related">
+              <img id="bdRelatedImg" src="" alt="Related image">
+              <p class="cap" id="bdRelatedCaption"></p>
+            </div>
+
+            <div class="blog-detail-footer">
+              <button type="button" class="blog-detail-back" data-page="insights" style="margin-bottom:0;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                Back to Blog
+              </button>
+              <a href="#" class="btn btn-primary" data-page="appointment">Make an Appointment</a>
+            </div>
           </div>
         </div>
       </section>
@@ -3954,6 +4158,122 @@
       e.preventDefault();
       document.getElementById('apptSuccess').classList.add('show');
       this.reset();
+    });
+
+    // ---------- Blog: single article view ----------
+    var blogPosts = {
+      habits: {
+        category: 'Everyday Habits',
+        title: 'Small habits that quietly support your mental health',
+        author: 'Marcus Tan',
+        authorRole: 'Head of Corporate Training',
+        authorPhoto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=75',
+        date: '12 June 2026',
+        readTime: '4 min read',
+        baseViews: 1842,
+        cover: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=75',
+        related: {
+          img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=75',
+          caption: 'A quiet morning routine can set the tone for the whole day.'
+        },
+        body: [
+          "It's easy to assume that looking after your mental health means a complete lifestyle overhaul — a new sleep schedule, a strict routine, hours of meditation. In reality, the habits that make the biggest difference are usually small, boring, and easy to keep.",
+          "Start with your mornings. A five-minute stretch, a glass of water before coffee, or simply stepping outside before checking your phone can shift how the rest of the day feels. None of these require willpower so much as repetition — they work because you barely have to think about them.",
+          "Naming how you feel, even briefly, also matters more than most people expect. Jotting down a single sentence about your mood at the end of the day builds a habit of noticing early, rather than realising weeks later that something has been building up.",
+          "The same goes for boundaries at work. Blocking 10 minutes between meetings, or deciding on a real cut-off time for emails, protects your attention without needing anyone else's permission.",
+          "None of these habits are dramatic, and that's the point. Mental health is rarely built in a single big moment — it's built in the ordinary ones, repeated enough times that they become part of how you move through a normal week."
+        ]
+      },
+      support: {
+        category: 'Getting Support',
+        title: "How to know when it's time to talk to someone",
+        author: 'Dr. Amanda Lee',
+        authorRole: 'Founder & Principal Consultant',
+        authorPhoto: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=75',
+        date: '28 May 2026',
+        readTime: '5 min read',
+        baseViews: 2104,
+        cover: 'https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?auto=format&fit=crop&w=1400&q=75',
+        related: {
+          img: 'https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&w=1200&q=75',
+          caption: 'A conversation with the right person can be the turning point.'
+        },
+        body: [
+          "Most people don't reach out for support because of one big, obvious event. More often, it's a slow build — sleep that's been off for weeks, a shorter temper than usual, or simply feeling like you're going through the motions without really being present.",
+          "One of the clearest signs is when coping strategies that used to work stop being enough. Maybe exercise, venting to a friend, or a weekend off used to reset you, and now the same things barely make a dent. That shift is worth paying attention to.",
+          "Another sign is when it starts affecting areas of life beyond the original stressor — a difficult period at work bleeding into how you show up at home, or with people you care about. When the impact spreads, it's usually a sign the underlying load has grown too.",
+          "Talking to a counsellor doesn't require a crisis. Many people come in simply wanting a neutral space to think out loud, with someone trained to notice patterns they can't see from the inside.",
+          "If you've been asking yourself whether it's 'bad enough' to seek support, that question itself is often a good enough reason to book a first session and find out."
+        ]
+      },
+      anxiety: {
+        category: 'Mindfulness',
+        title: 'Understanding anxiety: a gentle introduction',
+        author: 'Daniel Wong',
+        authorRole: 'Counselling Services Manager',
+        authorPhoto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=75',
+        date: '3 July 2026',
+        readTime: '6 min read',
+        baseViews: 963,
+        cover: 'https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=1400&q=75',
+        related: {
+          img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=75',
+          caption: 'Grounding techniques work best when practiced before you actually need them.'
+        },
+        body: [
+          "Anxiety often gets treated as something to eliminate entirely, but a more useful way to think about it is as an alarm system — one that's meant to protect you, but sometimes goes off louder, or more often, than the situation calls for.",
+          "Physically, anxiety shows up as a very real stress response: a faster heartbeat, tight chest, restless thoughts. None of this means something is wrong with you; it means your body is doing what it's designed to do, just at the wrong volume.",
+          "One of the simplest ways to work with it in the moment is grounding — bringing your attention back to your senses. Naming a few things you can see, hear, and feel physically can interrupt a spiral of anxious thoughts long enough to think clearly again.",
+          "Slow, deliberate breathing helps for a similar reason. Extending the exhale longer than the inhale signals to your nervous system that the immediate danger has passed, even before your mind has caught up.",
+          "Over the longer term, anxiety tends to ease not by avoiding what triggers it, but by building a bit more tolerance for uncertainty — one small, manageable step at a time, ideally with support from someone who can help you pace it."
+        ]
+      }
+    };
+
+    var blogViewCounts = {};
+
+    function formatViews(n) {
+      return n.toLocaleString('en-US') + ' views';
+    }
+
+    function openBlogPost(id) {
+      var post = blogPosts[id];
+      if (!post) return;
+
+      document.getElementById('bdCategory').textContent = post.category;
+      document.getElementById('bdTitle').textContent = post.title;
+      document.getElementById('bdAuthorPhoto').src = post.authorPhoto;
+      document.getElementById('bdAuthorPhoto').alt = post.author;
+      document.getElementById('bdAuthorName').textContent = post.author + ' — ' + post.authorRole;
+      document.getElementById('bdDate').textContent = post.date;
+      document.getElementById('bdReadTime').textContent = post.readTime;
+      document.getElementById('bdCover').src = post.cover;
+      document.getElementById('bdCover').alt = post.title;
+      document.getElementById('bdRelatedImg').src = post.related.img;
+      document.getElementById('bdRelatedImg').alt = post.related.caption;
+      document.getElementById('bdRelatedCaption').textContent = post.related.caption;
+
+      var bodyEl = document.getElementById('bdBody');
+      bodyEl.innerHTML = '';
+      post.body.forEach(function (para) {
+        var p = document.createElement('p');
+        p.textContent = para;
+        bodyEl.appendChild(p);
+      });
+
+      if (!blogViewCounts[id]) { blogViewCounts[id] = post.baseViews; }
+      blogViewCounts[id] += 1;
+      document.getElementById('bdViews').textContent = formatViews(blogViewCounts[id]);
+
+      goToPage('blog-detail');
+    }
+
+    document.addEventListener('click', function (e) {
+      var readmore = e.target.closest('.readmore');
+      if (readmore && readmore.hasAttribute('data-blog')) {
+        e.preventDefault();
+        openBlogPost(readmore.getAttribute('data-blog'));
+      }
     });
 
     // ---------- Scroll Reveal (fade + slide up as you scroll down) ----------
